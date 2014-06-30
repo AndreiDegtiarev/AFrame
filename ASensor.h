@@ -20,14 +20,16 @@
 */
 #pragma once
 
+#include "MeasurementStatus.h"
 class ASensor
 {
 public:
+
 	const __FlashStringHelper* Name;
 	virtual bool IsReadyForMeasurement()=0;
 	virtual void init_measurements()=0;
 	virtual void measure()=0;
 	virtual bool IsChanged()=0;
-	virtual bool IsOK() = 0;
+	virtual MeasurementStatus Status() = 0;
 };
 

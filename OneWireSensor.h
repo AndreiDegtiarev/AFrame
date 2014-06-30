@@ -29,9 +29,11 @@ protected:
 private:
 	float _prev_value;
 	float _last_value;
-	bool _IsStatusOK;
-	float _low_limit;
-	float _high_limit;
+	MeasurementStatus _status;
+	float _low_measurement_limit;
+	float _high_measurement_limit;
+	float _low_application_limit;
+	float _high_application_limit;
 	int _precission;
 	unsigned long _time_last_measurement;
 	unsigned long _pause_length;
@@ -39,14 +41,20 @@ private:
 	DataBuffer<unsigned int,int> *_minBuffer;
 	DataBuffer<unsigned int,int> *_howrsBuffer;
 public:
-	OneWireSensor(int port,float low_limit,float high_limit,int precission,unsigned long pause_length)
+	OneWireSensor(int port,float low_measurement_limit,
+		                   float high_measurement_limit,
+						   float low_application_limit,
+						   float high_application_limit,
+						   int precission,unsigned long pause_length)
 	{
 		_port=port;
 		_prev_value = 0;
 		_last_value = 0;
-		_low_limit=low_limit;
-		_high_limit=high_limit;
-		_IsStatusOK=true;
+		_low_measurement_limit=low_measurement_limit;
+		_high_measurement_limit=high_measurement_limit;
+		_low_application_limit=low_application_limit;
+		_high_application_limit=high_application_limit;
+		_status=OK;
 		_precission = 1;
 		_time_last_measurement = 0.0;
 		_pause_length = pause_length;
@@ -78,7 +86,7 @@ public:
 	}
 	void init_measurements()
 	{
-		_IsStatusOK = true;
+		_status = OK;
 	}
 	bool isDiffer(float prev_value,float value)
 	{
@@ -91,7 +99,7 @@ public:
 		//Serial.print(_prev_value);
 		//Serial.print(" ");
 		//Serial.println(_last_value);
-		if(_IsStatusOK && isDiffer(_prev_value,_last_value))
+		if(_status != Error && isDiffer(_prev_value,_last_value))
 			return true;
 		return false;
 	}
@@ -108,8 +116,16 @@ public:
 		/*Log::Number("Setting value:",value);
 		Log::Number(" low:",_low_limit);
 		Log::Number(" hight:",_high_limit,true);*/
-		if(value<_low_limit || value >_high_limit)
+		_status=OK;
+		if(value<_low_measurement_limit || value >_high_measurement_limit)
+		{
+			_status=Error;
 			return;
+		}
+		if(value<_low_application_limit || value >_high_application_limit)
+		{
+			_status=ApplicationAlarm;
+		}
 		if(_precission == 0)
 			value=lrint(value);
 		else
@@ -131,10 +147,10 @@ public:
 	}
 	void SetError()
 	{
-		_IsStatusOK=false;
+		_status=Error;
 	}
-	virtual bool IsOK()
+	virtual MeasurementStatus Status()
 	{
-		return _IsStatusOK;
+		return _status;
 	}
 };
