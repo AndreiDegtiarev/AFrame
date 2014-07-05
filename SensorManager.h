@@ -22,7 +22,7 @@
 #include "ISensor.h"
 #include "DataBuffer.h"
 
-class OneWireSensor : public ISensor
+class SensorManager
 {
 
 protected: 
