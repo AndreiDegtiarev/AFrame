@@ -20,18 +20,13 @@
 */
 #pragma once
 
-#include "MeasurementStatus.h"
 class ISensor
 {
 public:
 	virtual const __FlashStringHelper* Name()=0;
-	virtual bool IsReadyForMeasurement()=0;
-	virtual void InitMeasurements()=0;
-	virtual void Measure()=0;
-	virtual bool IsChanged()=0;
-	virtual float GetData()=0;
-	virtual void SetData()=0;
-	virtual int Precission();
-	virtual MeasurementStatus Status() = 0;
+	virtual int Precission()=0;
+	virtual float LowMeasurementLimit()=0;
+	virtual float HighMeasurementLimit()=0;
+	virtual bool Measure(float &data)=0;
 };
 
