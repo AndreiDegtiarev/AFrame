@@ -21,7 +21,7 @@
 #pragma once
 
 #include "MeasurementStatus.h"
-class ASensor
+class ISensor
 {
 public:
 
