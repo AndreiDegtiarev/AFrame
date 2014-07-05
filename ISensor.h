@@ -24,12 +24,14 @@
 class ISensor
 {
 public:
-
-	const __FlashStringHelper* Name;
+	virtual const __FlashStringHelper* Name()=0;
 	virtual bool IsReadyForMeasurement()=0;
-	virtual void init_measurements()=0;
-	virtual void measure()=0;
+	virtual void InitMeasurements()=0;
+	virtual void Measure()=0;
 	virtual bool IsChanged()=0;
+	virtual float GetData()=0;
+	virtual void SetData()=0;
+	virtual int Precission();
 	virtual MeasurementStatus Status() = 0;
 };
 

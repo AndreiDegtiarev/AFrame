@@ -19,11 +19,12 @@
   examples and tools supplied with the library.
 */
 #pragma once
-#include "ASensor.h"
+#include "ISensor.h"
 #include "DataBuffer.h"
 
-class OneWireSensor : public ASensor
+class OneWireSensor : public ISensor
 {
+
 protected: 
 	int _port;
 private:
@@ -64,7 +65,7 @@ public:
 		_howrsBuffer=new DataBuffer<unsigned int,int>(1/(60.0*60.0),pow(10,_precission));
 	}
 
-	int GetPrecission()
+	virtual int Precission()
 	{
 		return _precission;
 	}
@@ -84,7 +85,7 @@ public:
 	{
 		return millis()-_time_last_measurement>_pause_length;
 	}
-	void init_measurements()
+	void InitMeasurements()
 	{
 		_status = OK;
 	}
@@ -103,7 +104,7 @@ public:
 			return true;
 		return false;
 	}
-	float GetData()
+	virtual float GetData()
 	{
 		if(isDiffer(_prev_value,_last_value))
 		{
@@ -111,7 +112,7 @@ public:
 		}
 		return _last_value;
 	}
-	void SetData(float value)
+	virtual void SetData(float value)
 	{
 		/*Log::Number("Setting value:",value);
 		Log::Number(" low:",_low_limit);
