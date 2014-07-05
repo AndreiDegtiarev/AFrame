@@ -53,9 +53,10 @@ public:
 		_status=OK;
 		_time_last_measurement = 0.0;
 		_pause_length = pause_length;
-		_secBuffer=new DataBuffer<unsigned long,int>(1,pow(10,sensor->Precission()));
-		_minBuffer=new DataBuffer<unsigned int,int>(1/60.0,pow(10,sensor->Precission()));
-		_howrsBuffer=new DataBuffer<unsigned int,int>(1/(60.0*60.0),pow(10,sensor->Precission()));
+		int buf_size=24;
+		_secBuffer=new DataBuffer<unsigned long,int>(1,pow(10,sensor->Precission()),buf_size);
+		_minBuffer=new DataBuffer<unsigned int,int>(1/60.0,pow(10,sensor->Precission()),buf_size);
+		_howrsBuffer=new DataBuffer<unsigned int,int>(1/(60.0*60.0),pow(10,sensor->Precission()),buf_size);
 	}
 	ISensor *Sensor()
 	{
