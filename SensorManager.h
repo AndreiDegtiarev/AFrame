@@ -62,15 +62,15 @@ public:
 	{
 		return _sensor;
 	}
-	DataBufferBase *SecBuffer()
+	IDataBuffer *SecBuffer()
 	{
 		return _secBuffer;
 	}
-	DataBufferBase *MinBuffer()
+	IDataBuffer *MinBuffer()
 	{
 		return _minBuffer;
 	}
-	DataBufferBase *HowrsBuffer()
+	IDataBuffer *HowrsBuffer()
 	{
 		return _howrsBuffer;
 	}
