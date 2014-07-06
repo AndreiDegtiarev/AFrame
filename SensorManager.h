@@ -21,7 +21,7 @@
 #pragma once
 #include "ISensor.h"
 #include "MeasurementStatus.h"
-#include "DataBuffer.h"
+#include "SensorDataBuffer.h"
 
 class SensorManager
 {
@@ -36,9 +36,9 @@ private:
 	float _high_application_limit;
 	unsigned long _time_last_measurement;
 	unsigned long _pause_length;
-	DataBuffer<unsigned long,int> *_secBuffer;
-	DataBuffer<unsigned int,int> *_minBuffer;
-	DataBuffer<unsigned int,int> *_howrsBuffer;
+	SensorDataBuffer<unsigned long,int> *_secBuffer;
+	SensorDataBuffer<unsigned int,int> *_minBuffer;
+	SensorDataBuffer<unsigned int,int> *_howrsBuffer;
 public:
 	SensorManager(ISensor *sensor,
 				  float low_application_limit,
@@ -54,9 +54,9 @@ public:
 		_time_last_measurement = 0.0;
 		_pause_length = pause_length;
 		int buf_size=24;
-		_secBuffer=new DataBuffer<unsigned long,int>(1,pow(10,sensor->Precission()),buf_size);
-		_minBuffer=new DataBuffer<unsigned int,int>(1/60.0,pow(10,sensor->Precission()),buf_size);
-		_howrsBuffer=new DataBuffer<unsigned int,int>(1/(60.0*60.0),pow(10,sensor->Precission()),buf_size);
+		_secBuffer=new SensorDataBuffer<unsigned long,int>(1,pow(10,sensor->Precission()),buf_size);
+		_minBuffer=new SensorDataBuffer<unsigned int,int>(1/60.0,pow(10,sensor->Precission()),buf_size);
+		_howrsBuffer=new SensorDataBuffer<unsigned int,int>(1/(60.0*60.0),pow(10,sensor->Precission()),buf_size);
 	}
 	ISensor *Sensor()
 	{
