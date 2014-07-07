@@ -36,9 +36,9 @@ private:
 	float _high_application_limit;
 	unsigned long _time_last_measurement;
 	unsigned long _pause_length;
-	SensorDataBuffer<unsigned long,int> *_secBuffer;
-	SensorDataBuffer<unsigned int,int> *_minBuffer;
-	SensorDataBuffer<unsigned int,int> *_howrsBuffer;
+	SensorDataBuffer *_secBuffer;
+	SensorDataBuffer *_minBuffer;
+	SensorDataBuffer *_howrsBuffer;
 public:
 	SensorManager(ISensor *sensor,
 				  float low_application_limit,
@@ -53,24 +53,24 @@ public:
 		_status=OK;
 		_time_last_measurement = 0.0;
 		_pause_length = pause_length;
-		int buf_size=24;
-		_secBuffer=new SensorDataBuffer<unsigned long,int>(1,pow(10,sensor->Precission()),buf_size);
-		_minBuffer=new SensorDataBuffer<unsigned int,int>(1/60.0,pow(10,sensor->Precission()),buf_size);
-		_howrsBuffer=new SensorDataBuffer<unsigned int,int>(1/(60.0*60.0),pow(10,sensor->Precission()),buf_size);
+		int buf_size=28;
+		_secBuffer=new SensorDataBuffer(1,pow(10,sensor->Precission()),buf_size);
+		_minBuffer=new SensorDataBuffer(1/60.0,pow(10,sensor->Precission()),buf_size);
+		_howrsBuffer=new SensorDataBuffer(1/(60.0*60.0),pow(10,sensor->Precission()),buf_size);
 	}
 	ISensor *Sensor()
 	{
 		return _sensor;
 	}
-	IDataBuffer *SecBuffer()
+	SensorDataBuffer *SecBuffer()
 	{
 		return _secBuffer;
 	}
-	IDataBuffer *MinBuffer()
+	SensorDataBuffer *MinBuffer()
 	{
 		return _minBuffer;
 	}
-	IDataBuffer *HowrsBuffer()
+	SensorDataBuffer *HowrsBuffer()
 	{
 		return _howrsBuffer;
 	}
@@ -78,21 +78,12 @@ public:
 	{
 		return millis()-_time_last_measurement>_pause_length;
 	}
-	/*void InitMeasurements()
-	{
-		_status = OK;
-	}*/
 	bool isDiffer(float prev_value,float value)
 	{
-		//float max_val=max(fabs(_prev_value),fabs(value));
-		//return max_val>0 && fabs(_prev_value-value)/max_val>_change_tolerance;
 		return prev_value!=value;
 	}
 	bool IsChanged()
 	{
-		//Serial.print(_prev_value);
-		//Serial.print(" ");
-		//Serial.println(_last_value);
 		if(_status != Error && isDiffer(_prev_value,_last_value))
 			return true;
 		return false;
