@@ -60,6 +60,7 @@ public:
 	{
 		if(out.IsInitialized())
 			Serial.println();
+		return out;
 	}
 	/*template<class T>
 	friend Log& operator<<(Log &out,T &value)
@@ -72,6 +73,7 @@ public:
 	{
 		if(out.IsInitialized())
 			Serial.print(value);
+		return out;
 	}
 };
 extern Log out;
