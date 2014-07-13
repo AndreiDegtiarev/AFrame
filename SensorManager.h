@@ -53,7 +53,7 @@ public:
 		_status=OK;
 		_time_last_measurement = 0.0;
 		_pause_length = pause_length;
-		int buf_size=10;
+		int buf_size=24;
 		_secBuffer=new SensorDataBuffer(1,pow(10,sensor->Precission()),buf_size);
 		_minBuffer=new SensorDataBuffer(1/60.0,pow(10,sensor->Precission()),buf_size);
 		_howrsBuffer=new SensorDataBuffer(1/(60.0*60.0),pow(10,sensor->Precission()),buf_size);
