@@ -22,6 +22,7 @@
 #include "ISensor.h"
 #include "MeasurementStatus.h"
 #include "SensorDataBuffer.h"
+#include "ISensorHasDataEventReceiver.h"
 
 class SensorManager
 {
@@ -39,6 +40,7 @@ private:
 	SensorDataBuffer *_secBuffer;
 	SensorDataBuffer *_minBuffer;
 	SensorDataBuffer *_howrsBuffer;
+	ISensorHasDataEventReceiver *_eventReceiver;
 public:
 	SensorManager(ISensor *sensor,
 				  float low_application_limit,
@@ -46,17 +48,22 @@ public:
 				  unsigned long pause_length)
 	{
 		_sensor=sensor;
-		_prev_value = 0;
-		_last_value = 0;
 		_low_application_limit=low_application_limit;
 		_high_application_limit=high_application_limit;
-		_status=OK;
-		_time_last_measurement = 0.0;
 		_pause_length = pause_length;
-		int buf_size=24;
+		_status=OK;
+		_prev_value = 0;
+		_last_value = 0;
+		_time_last_measurement = 0.0;
+		int buf_size=26;
 		_secBuffer=new SensorDataBuffer(1,pow(10,sensor->Precission()),buf_size);
 		_minBuffer=new SensorDataBuffer(1/60.0,pow(10,sensor->Precission()),buf_size);
 		_howrsBuffer=new SensorDataBuffer(1/(60.0*60.0),pow(10,sensor->Precission()),buf_size);
+		_eventReceiver=NULL;
+	}
+	void RegisterReceiver(ISensorHasDataEventReceiver *eventReceiver)
+	{
+		_eventReceiver=eventReceiver;
 	}
 	ISensor *Sensor()
 	{
@@ -98,9 +105,6 @@ public:
 	}
 	void Measure()
 	{
-		/*Log::Number("Setting value:",value);
-		Log::Number(" low:",_low_limit);
-		Log::Number(" hight:",_high_limit,true);*/
 		float value;
 		_status=Error;
 		if(_sensor->Measure(value))
@@ -124,7 +128,6 @@ public:
 			}
 			_time_last_measurement = millis();
 			_last_value=value;
-			//Log::Number("After rounding:",_last_value,true);
 			unsigned long cursec=_time_last_measurement/1000;
 			_secBuffer->AddValue(cursec,value);
 			unsigned long last_sec_time = _minBuffer->X(_minBuffer->Size()-1);
@@ -133,6 +136,9 @@ public:
 			unsigned long last_howr_time = _howrsBuffer->X(_howrsBuffer->Size()-1);
 			if(last_howr_time == 0 || (cursec-last_howr_time)>3600)
 				_howrsBuffer->AddValue(cursec,value);
+			if(IsChanged() && _eventReceiver!=NULL)
+				_eventReceiver->NotifySensorHasData(this);
+
 		}
 	}
 	MeasurementStatus Status()
