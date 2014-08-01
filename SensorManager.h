@@ -55,7 +55,8 @@ public:
 		_prev_value = 0;
 		_last_value = 0;
 		_time_last_measurement = 0.0;
-		int buf_size=26;
+		//reduce this value if you have problem with SRAM
+		const int buf_size=26;
 		_secBuffer=new SensorDataBuffer(1,pow(10,sensor->Precission()),buf_size);
 		_minBuffer=new SensorDataBuffer(1/60.0,pow(10,sensor->Precission()),buf_size);
 		_howrsBuffer=new SensorDataBuffer(1/(60.0*60.0),pow(10,sensor->Precission()),buf_size);
