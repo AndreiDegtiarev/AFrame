@@ -3,5 +3,5 @@
 class ICriticalProcess
 {
 public:
-	void virtual loop()=0;
+	void virtual Idle()=0;
 };
