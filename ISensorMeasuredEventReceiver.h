@@ -19,21 +19,11 @@
   The license applies to all part of the library including the 
   examples and tools supplied with the library.
 */
-#include "Log.h"
-class AHelper
+class SensorManager;
+///Receiver for events that occurs after each measurement. Event will always generated event if measurements produce same results
+class ISensorMeasuredEventReceiver
 {
 public:
-	static int LogFreeRam ()
-	{
-		extern int __heap_start, *__brkval; 
-		int v; 
-		int fr = (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval); 
-		out<<F("Free ram: ");
-		out<<fr<<endl;
-
-	}
-	static int GetNumberLength(float number,int prec)
-	{
-		return (number==0?0:log10(number))+2+prec+(number<0?1:0);
-	}
+	///In order to get event the function has to be overriden in the derived class
+	virtual void NotifySensorMeasured(SensorManager *sensorManager)=0;
 };

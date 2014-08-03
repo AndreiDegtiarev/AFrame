@@ -23,6 +23,7 @@
 #include "MeasurementStatus.h"
 #include "SensorDataBuffer.h"
 #include "ISensorHasDataEventReceiver.h"
+#include "ISensorMeasuredEventReceiver.h"
 
 class SensorManager
 {
@@ -41,6 +42,7 @@ private:
 	SensorDataBuffer *_minBuffer;
 	SensorDataBuffer *_howrsBuffer;
 	ISensorHasDataEventReceiver *_eventReceiver;
+	ISensorMeasuredEventReceiver *_eventMeasuredReceiver;
 public:
 	SensorManager(ISensor *sensor,
 				  float low_application_limit,
@@ -61,14 +63,32 @@ public:
 		_minBuffer=new SensorDataBuffer(1/60.0,pow(10,sensor->Precission()),buf_size);
 		_howrsBuffer=new SensorDataBuffer(1/(60.0*60.0),pow(10,sensor->Precission()),buf_size);
 		_eventReceiver=NULL;
+		_eventMeasuredReceiver=NULL;
 	}
-	void RegisterReceiver(ISensorHasDataEventReceiver *eventReceiver)
+	void RegisterHasDataEventReceiver(ISensorHasDataEventReceiver *eventReceiver)
 	{
 		_eventReceiver=eventReceiver;
+	}
+	void RegisterMeasuredEventReceiver(ISensorMeasuredEventReceiver *eventReceiver)
+	{
+		_eventMeasuredReceiver=eventReceiver;
 	}
 	ISensor *Sensor()
 	{
 		return _sensor;
+	}
+	///Sets pause between measurements
+	/**
+	\param pause_ms pause between measurements [milliseconds]
+	*/
+	void SetPause(unsigned long pause_ms)
+	{
+		_pause_length=pause_ms;
+	}
+	///Returns pause between measurements [milliseconds]
+	unsigned long GetPause()
+	{
+		return _pause_length;
 	}
 	SensorDataBuffer *SecBuffer()
 	{
@@ -139,6 +159,8 @@ public:
 				_howrsBuffer->AddValue(cursec,value);
 			if(IsChanged() && _eventReceiver!=NULL)
 				_eventReceiver->NotifySensorHasData(this);
+			if(_eventMeasuredReceiver!=NULL)
+				_eventMeasuredReceiver->NotifySensorMeasured(this);
 
 		}
 	}
