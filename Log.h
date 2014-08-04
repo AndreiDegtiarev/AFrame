@@ -1,26 +1,18 @@
+#pragma once
 /*
-  AWind.h - Arduino window library support for Color TFT LCD Boards
+  AFrame - Arduino framework library for ASensor and AWind libraries
   Copyright (C)2014 Andrei Degtiarev. All right reserved
   
-
   You can always find the latest version of the library at 
-  https://github.com/AndreiDegtiarev/AWind
-
+  https://github.com/AndreiDegtiarev/AFrame
 
   This library is free software; you can redistribute it and/or
-  modify it under the terms of the CC BY-NC-SA 3.0 license.
+  modify it under the terms of the MIT license.
   Please see the included documents for further information.
-
-  Commercial use of this library requires you to buy a license that
-  will allow commercial use. This includes using the library,
-  modified or not, as a tool to sell products.
-
-  The license applies to all part of the library including the 
-  examples and tools supplied with the library.
 */
-#pragma once
 #include "HardwareSerial.h"
 class Endl {};
+///Wrapper about Arduino HardwareSerial class
 class Log
 {
 	bool _is_initialized;
@@ -29,45 +21,23 @@ public:
 	{
 		_is_initialized=false;
 	}
-	void begin(unsigned long boud)
+	///Initializes serial interface
+	/**
+	\param baud symbol rate in bauds
+	*/
+	void begin(unsigned long baud)
 	{
-		Serial.begin(boud);
+		Serial.begin(baud);
 		_is_initialized=true;
 	}
-	bool IsInitialized()
-	{
-		return _is_initialized;
-	}
-	template<class T1,class T2>
-	static void Number(T1 *prefix,T2 &value,bool newLine=false)
-	{
-		if(prefix!=NULL)
-			Serial.print(prefix);
-		Serial.print(value);
-		if(newLine)
-			Line();
-	}
-	static void Line()
-	{
-		Serial.println("");
-	}
-	template<class T>
-	static void Line(T value)
-	{
-		Serial.println(value);
-	}
+	///Overload << operator with end of line command
 	friend Log& operator<<(Log &out,Endl &value)
 	{
 		if(out.IsInitialized())
 			Serial.println();
 		return out;
 	}
-	/*template<class T>
-	friend Log& operator<<(Log &out,T &value)
-	{
-		if(out.IsInitialized())
-			Serial.print(value);
-	}*/
+	///Overload << operator for general values
 	template<class T>
 	friend Log& operator<<(Log &out,T value)
 	{
@@ -75,6 +45,12 @@ public:
 			Serial.print(value);
 		return out;
 	}
+private:
+	bool IsInitialized()
+	{
+		return _is_initialized;
+	}
+
 };
 extern Log out;
 extern Endl endl;

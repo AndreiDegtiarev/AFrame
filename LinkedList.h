@@ -1,46 +1,40 @@
+#pragma once
 /*
   AFrame - Arduino framework library for ASensor and AWind libraries
   Copyright (C)2014 Andrei Degtiarev. All right reserved
   
-
   You can always find the latest version of the library at 
   https://github.com/AndreiDegtiarev/AFrame
 
-
   This library is free software; you can redistribute it and/or
-  modify it under the terms of the CC BY-NC-SA 3.0 license.
+  modify it under the terms of the MIT license.
   Please see the included documents for further information.
-
-  Commercial use of this library requires you to buy a license that
-  will allow commercial use. This includes using the library,
-  modified or not, as a tool to sell products.
-
-  The license applies to all part of the library including the 
-  examples and tools supplied with the library.
 */
-#pragma once
-
+#include "Log.h"
+///Internal class, implements list entry container.
 template <class T> class LinkedEntry
 {
-public:
-	LinkedEntry* Next;
-	T* Item;
+template<class U> friend class LinkedList;
+	LinkedEntry* Next; //!<Pointer to the next list item
+	T* Item;           //!<Pointer to the list element
 	LinkedEntry(T* item)
 	{
 		Item = item;
 		Next=NULL;
 	}
 };
+///Implements list container. Examples can be found in ASensor and AWind libraries
 template <class T> class LinkedList
 {
-	LinkedEntry<T> * Head;
-	int _count;
+	LinkedEntry<T> * Head; //!<Pointer to the first item
+	int _count;  //!<Number of list items
 public:
 	LinkedList()
 	{
 		Head=NULL;
 		_count=0;
 	};
+	///Adds new element to the list
 	void Add(T *item)
 	{
 		LinkedEntry<T> *new_entry=new LinkedEntry<T>(item);
@@ -59,16 +53,17 @@ public:
 		}
 		_count++;
 	}
+	///Returns numbr of list items
 	int Count()
 	{
 		return _count;
 	}
+	///Implements [] operator
 	T* operator[](int pos)
 	{
 		if(pos>=_count)
 		{
-			Serial.print("Error: index is too big: ");
-			Serial.println(pos);
+			out<<F("Error: index is too big: ")<<pos<<endl;
 			return NULL;
 		}
 		else

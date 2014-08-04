@@ -3,26 +3,19 @@
   AFrame - Arduino framework library for ASensor and AWind libraries
   Copyright (C)2014 Andrei Degtiarev. All right reserved
   
-
   You can always find the latest version of the library at 
   https://github.com/AndreiDegtiarev/AFrame
 
-
   This library is free software; you can redistribute it and/or
-  modify it under the terms of the CC BY-NC-SA 3.0 license.
+  modify it under the terms of the MIT license.
   Please see the included documents for further information.
-
-  Commercial use of this library requires you to buy a license that
-  will allow commercial use. This includes using the library,
-  modified or not, as a tool to sell products.
-
-  The license applies to all part of the library including the 
-  examples and tools supplied with the library.
 */
 #include "Log.h"
+///Implements number of different helper functions
 class AHelper
 {
 public:
+	///Logs free SRAM memory. SRAM memory is a critical issue especially for application that perform data logging
 	static int LogFreeRam ()
 	{
 		extern int __heap_start, *__brkval; 
@@ -32,6 +25,12 @@ public:
 		out<<fr<<endl;
 
 	}
+	///Calculates number of charachters in a number.
+	/**
+	\param number target number
+	\param prec number of decimal points
+	\return number of charachters that represents input value
+	*/
 	static int GetNumberLength(float number,int prec)
 	{
 		return (number==0?0:log10(number))+2+prec+(number<0?1:0);

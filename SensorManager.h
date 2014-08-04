@@ -1,30 +1,22 @@
+#pragma once
 /*
   AFrame - Arduino framework library for ASensor and AWind libraries
   Copyright (C)2014 Andrei Degtiarev. All right reserved
   
-
   You can always find the latest version of the library at 
   https://github.com/AndreiDegtiarev/AFrame
 
-
   This library is free software; you can redistribute it and/or
-  modify it under the terms of the CC BY-NC-SA 3.0 license.
+  modify it under the terms of the MIT license.
   Please see the included documents for further information.
-
-  Commercial use of this library requires you to buy a license that
-  will allow commercial use. This includes using the library,
-  modified or not, as a tool to sell products.
-
-  The license applies to all part of the library including the 
-  examples and tools supplied with the library.
 */
-#pragma once
 #include "ISensor.h"
 #include "MeasurementStatus.h"
 #include "SensorDataBuffer.h"
 #include "ISensorHasDataEventReceiver.h"
 #include "ISensorMeasuredEventReceiver.h"
 
+///Manage operations with sensors: triggers measurements, check appplication alarm status and etc.
 class SensorManager
 {
 
@@ -44,6 +36,13 @@ private:
 	ISensorHasDataEventReceiver *_eventReceiver;
 	ISensorMeasuredEventReceiver *_eventMeasuredReceiver;
 public:
+	///Constructor
+	/**
+	\param sensor derived from ISensor class
+	\param low_application_limit defines application limit for measurements. Like inner temperature schould not be below 0 Celcius 
+	\param high_application_limit defines application limit for measurements. Like humidity schould not be higher as 65 %
+	\param pause_length pause between measurements [milliseconds]
+	*/
 	SensorManager(ISensor *sensor,
 				  float low_application_limit,
 				  float high_application_limit,
@@ -65,14 +64,17 @@ public:
 		_eventReceiver=NULL;
 		_eventMeasuredReceiver=NULL;
 	}
+	///Registers receiver for sensor measurement if it differs from previos one
 	void RegisterHasDataEventReceiver(ISensorHasDataEventReceiver *eventReceiver)
 	{
 		_eventReceiver=eventReceiver;
 	}
+	///Registers receiver for sensor measurement for every measurement event
 	void RegisterMeasuredEventReceiver(ISensorMeasuredEventReceiver *eventReceiver)
 	{
 		_eventMeasuredReceiver=eventReceiver;
 	}
+	///Returns associated sensor
 	ISensor *Sensor()
 	{
 		return _sensor;
@@ -90,33 +92,35 @@ public:
 	{
 		return _pause_length;
 	}
+	///Return internal buffer for all last measurements (check buf_size parameter)
 	SensorDataBuffer *SecBuffer()
 	{
 		return _secBuffer;
 	}
+	///Return internal buffer for last measurements with minutes interval (check buf_size parameter)
 	SensorDataBuffer *MinBuffer()
 	{
 		return _minBuffer;
 	}
+	///Return internal buffer for last measurements with howrs interval (check buf_size parameter)
 	SensorDataBuffer *HowrsBuffer()
 	{
 		return _howrsBuffer;
 	}
+	///Returns true if measurements need to be performed
 	bool IsReadyForMeasurement()
 	{
 		return millis()-_time_last_measurement>_pause_length;
 	}
-	bool isDiffer(float prev_value,float value)
-	{
-		return prev_value!=value;
-	}
+	///Returns true if there are new measurements
 	bool IsChanged()
 	{
 		if(_status != Error && isDiffer(_prev_value,_last_value))
 			return true;
 		return false;
 	}
-	virtual float GetData()
+	///Returns last measurements
+	float GetData()
 	{
 		if(isDiffer(_prev_value,_last_value))
 		{
@@ -124,6 +128,7 @@ public:
 		}
 		return _last_value;
 	}
+	///Triggers sensor measurements
 	void Measure()
 	{
 		float value;
@@ -164,8 +169,16 @@ public:
 
 		}
 	}
+	///Return status of last measurements
 	MeasurementStatus Status()
 	{
 		return _status;
 	}
+private:
+	///Return true if two values are differ
+	bool isDiffer(float prev_value,float value)
+	{
+		return prev_value!=value;
+	}
+
 };
