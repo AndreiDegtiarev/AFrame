@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -91,7 +92,7 @@ $(document).ready(function(){initNavTree('class_i_sensor_has_data_event_receiver
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,13 +109,53 @@ $(document).ready(function(){initNavTree('class_i_sensor_has_data_event_receiver
 <div class="title">ISensorHasDataEventReceiver Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interface for sensor has data event receiver. If application need to get data from sensor the receiver class has to implement this interface.  
+ <a href="class_i_sensor_has_data_event_receiver.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_sensor_has_data_event_receiver_8h_source.html">ISensorHasDataEventReceiver.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1498dffabcd78b31e35e83c0a92f9e07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1498dffabcd78b31e35e83c0a92f9e07"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifySensorHasData</b> (<a class="el" href="class_sensor_manager.html">SensorManager</a> *sensorManager)=0</td></tr>
+<tr class="memitem:a1498dffabcd78b31e35e83c0a92f9e07"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_sensor_has_data_event_receiver.html#a1498dffabcd78b31e35e83c0a92f9e07">NotifySensorHasData</a> (<a class="el" href="class_sensor_manager.html">SensorManager</a> *sensorManager)=0</td></tr>
+<tr class="memdesc:a1498dffabcd78b31e35e83c0a92f9e07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event function that has to be overriden in derived class.  <a href="#a1498dffabcd78b31e35e83c0a92f9e07">More...</a><br /></td></tr>
 <tr class="separator:a1498dffabcd78b31e35e83c0a92f9e07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface for sensor has data event receiver. If application need to get data from sensor the receiver class has to implement this interface. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a1498dffabcd78b31e35e83c0a92f9e07"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ISensorHasDataEventReceiver::NotifySensorHasData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_sensor_manager.html">SensorManager</a> *&#160;</td>
+          <td class="paramname"><em>sensorManager</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Event function that has to be overriden in derived class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensorManager</td><td>pointer to corresponding sensor data conatiner </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_i_sensor_has_data_event_receiver_8h_source.html">ISensorHasDataEventReceiver.h</a></li>
 </ul>
@@ -124,7 +165,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>NotifySensorH
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_i_sensor_has_data_event_receiver.html">ISensorHasDataEventReceiver</a></li>
-    <li class="footer">Generated on Sun Jul 27 2014 11:08:24 for AFrame by
+    <li class="footer">Generated on Mon Aug 4 2014 17:28:29 for AFrame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

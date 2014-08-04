@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -91,7 +92,7 @@ $(document).ready(function(){initNavTree('class_sensor_manager.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -109,24 +110,26 @@ $(document).ready(function(){initNavTree('class_sensor_manager.html','');});
 <p>This is the complete list of members for <a class="el" href="class_sensor_manager.html">SensorManager</a>, including all inherited members.</p>
 <table class="directory">
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>_sensor</b> (defined in <a class="el" href="class_sensor_manager.html">SensorManager</a>)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>GetData</b>() (defined in <a class="el" href="class_sensor_manager.html">SensorManager</a>)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>HowrsBuffer</b>() (defined in <a class="el" href="class_sensor_manager.html">SensorManager</a>)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>IsChanged</b>() (defined in <a class="el" href="class_sensor_manager.html">SensorManager</a>)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>isDiffer</b>(float prev_value, float value) (defined in <a class="el" href="class_sensor_manager.html">SensorManager</a>)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>IsReadyForMeasurement</b>() (defined in <a class="el" href="class_sensor_manager.html">SensorManager</a>)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Measure</b>() (defined in <a class="el" href="class_sensor_manager.html">SensorManager</a>)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>MinBuffer</b>() (defined in <a class="el" href="class_sensor_manager.html">SensorManager</a>)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>RegisterReceiver</b>(ISensorHasDataEventReceiver *eventReceiver) (defined in <a class="el" href="class_sensor_manager.html">SensorManager</a>)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>SecBuffer</b>() (defined in <a class="el" href="class_sensor_manager.html">SensorManager</a>)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Sensor</b>() (defined in <a class="el" href="class_sensor_manager.html">SensorManager</a>)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>SensorManager</b>(ISensor *sensor, float low_application_limit, float high_application_limit, unsigned long pause_length) (defined in <a class="el" href="class_sensor_manager.html">SensorManager</a>)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Status</b>() (defined in <a class="el" href="class_sensor_manager.html">SensorManager</a>)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_sensor_manager.html#ab0efa70910f9dd25b6bd8dcf9e350ce4">GetData</a>()</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_sensor_manager.html#a3189b7c90621014ff88edba4ea712bf7">GetPause</a>()</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_sensor_manager.html#af6a52c3a6548cfaf1c622c013f914186">HowrsBuffer</a>()</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_sensor_manager.html#af5741d885b1ce9baa6c3c0d08314c875">IsChanged</a>()</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_sensor_manager.html#a6a0b7b5fcb2993322b4f8cde1ecaf341">IsReadyForMeasurement</a>()</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_sensor_manager.html#afcd1a5b761f5ee8567499f1567eea880">Measure</a>()</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_sensor_manager.html#aa9b07f41717a54528de4fc7805af898c">MinBuffer</a>()</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_sensor_manager.html#a8affb4a3ce9b7c91943e8947068ba055">RegisterHasDataEventReceiver</a>(ISensorHasDataEventReceiver *eventReceiver)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_sensor_manager.html#aa96769c4dd10b8933a8769f5de0f8dd4">RegisterMeasuredEventReceiver</a>(ISensorMeasuredEventReceiver *eventReceiver)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_sensor_manager.html#aa5f0d61138fc5a252cbbe8e789fdfe00">SecBuffer</a>()</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_sensor_manager.html#a9a004121dd99aa382b6a917231072171">Sensor</a>()</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_sensor_manager.html#ad1a252d9a2f5188b8eca07cfcfa03f21">SensorManager</a>(ISensor *sensor, float low_application_limit, float high_application_limit, unsigned long pause_length)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_sensor_manager.html#aa469a549e4d0e710c257ab67749d1dbd">SetPause</a>(unsigned long pause_ms)</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_sensor_manager.html#a9b6356f3ad93368dc68faaabf224088e">Status</a>()</td><td class="entry"><a class="el" href="class_sensor_manager.html">SensorManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Jul 27 2014 11:08:24 for AFrame by
+    <li class="footer">Generated on Mon Aug 4 2014 17:28:29 for AFrame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -91,7 +92,7 @@ $(document).ready(function(){initNavTree('class_linked_entry.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -102,30 +103,31 @@ $(document).ready(function(){initNavTree('class_linked_entry.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_linked_entry-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">LinkedEntry&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Internal class, implements list entry container.  
+ <a href="class_linked_entry.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_linked_list_8h_source.html">LinkedList.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a6dd38af1ea61b71cd73aea44aab35d08"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6dd38af1ea61b71cd73aea44aab35d08"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LinkedEntry</b> (T *item)</td></tr>
-<tr class="separator:a6dd38af1ea61b71cd73aea44aab35d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a2d128d84e88e0fb21a87566a08369052"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d128d84e88e0fb21a87566a08369052"></a>
-<a class="el" href="class_linked_entry.html">LinkedEntry</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Next</b></td></tr>
-<tr class="separator:a2d128d84e88e0fb21a87566a08369052"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add428e7b191a6460194008b6438eba4c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add428e7b191a6460194008b6438eba4c"></a>
-T *&#160;</td><td class="memItemRight" valign="bottom"><b>Item</b></td></tr>
-<tr class="separator:add428e7b191a6460194008b6438eba4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a1cd1dcbc39bd3474b79bdc0bcd7bc073"><td class="memTemplParams" colspan="2"><a class="anchor" id="a1cd1dcbc39bd3474b79bdc0bcd7bc073"></a>
+template&lt;class U &gt; </td></tr>
+<tr class="memitem:a1cd1dcbc39bd3474b79bdc0bcd7bc073"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><b>LinkedList</b></td></tr>
+<tr class="separator:a1cd1dcbc39bd3474b79bdc0bcd7bc073"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class T&gt;<br />
+class LinkedEntry&lt; T &gt;</h3>
+
+<p>Internal class, implements list entry container. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_linked_list_8h_source.html">LinkedList.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -134,7 +136,7 @@ T *&#160;</td><td class="memItemRight" valign="bottom"><b>Item</b></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_linked_entry.html">LinkedEntry</a></li>
-    <li class="footer">Generated on Sun Jul 27 2014 11:08:24 for AFrame by
+    <li class="footer">Generated on Mon Aug 4 2014 17:28:29 for AFrame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

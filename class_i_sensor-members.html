@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -91,7 +92,7 @@ $(document).ready(function(){initNavTree('class_i_sensor.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,17 +109,17 @@ $(document).ready(function(){initNavTree('class_i_sensor.html','');});
 
 <p>This is the complete list of members for <a class="el" href="class_i_sensor.html">ISensor</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>HighMeasurementLimit</b>()=0 (defined in <a class="el" href="class_i_sensor.html">ISensor</a>)</td><td class="entry"><a class="el" href="class_i_sensor.html">ISensor</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>LowMeasurementLimit</b>()=0 (defined in <a class="el" href="class_i_sensor.html">ISensor</a>)</td><td class="entry"><a class="el" href="class_i_sensor.html">ISensor</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Measure</b>(float &amp;data)=0 (defined in <a class="el" href="class_i_sensor.html">ISensor</a>)</td><td class="entry"><a class="el" href="class_i_sensor.html">ISensor</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Name</b>()=0 (defined in <a class="el" href="class_i_sensor.html">ISensor</a>)</td><td class="entry"><a class="el" href="class_i_sensor.html">ISensor</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Precission</b>()=0 (defined in <a class="el" href="class_i_sensor.html">ISensor</a>)</td><td class="entry"><a class="el" href="class_i_sensor.html">ISensor</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_sensor.html#a7ed04b72061800073138a74eee8d9407">HighMeasurementLimit</a>()=0</td><td class="entry"><a class="el" href="class_i_sensor.html">ISensor</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_sensor.html#a3543fd32c472ec6a6ca5a4552b181b48">LowMeasurementLimit</a>()=0</td><td class="entry"><a class="el" href="class_i_sensor.html">ISensor</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_sensor.html#a929172d64816c5395e597236e927d69e">Measure</a>(float &amp;data)=0</td><td class="entry"><a class="el" href="class_i_sensor.html">ISensor</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_sensor.html#a7388eee56d1ad68dbbfdcaf4623ada25">Name</a>()=0</td><td class="entry"><a class="el" href="class_i_sensor.html">ISensor</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_sensor.html#a409260549582fd6db03ae9d1e059ed10">Precission</a>()=0</td><td class="entry"><a class="el" href="class_i_sensor.html">ISensor</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Jul 27 2014 11:08:24 for AFrame by
+    <li class="footer">Generated on Mon Aug 4 2014 17:28:28 for AFrame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

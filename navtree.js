@@ -4,7 +4,12 @@ var NAVTREE =
     [ "Main", "md_docs__main.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
-      [ "Class Index", "classes.html", null ]
+      [ "Class Index", "classes.html", null ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Related Functions", "functions_rela.html", null ]
+      ] ]
     ] ],
     [ "Files", null, [
       [ "File List", "files.html", "files" ]
@@ -14,7 +19,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_i_critical_process_8h_source.html"
+"_a_helper_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

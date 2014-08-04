@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -91,7 +92,7 @@ $(document).ready(function(){initNavTree('class_i_sensor.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,25 +109,70 @@ $(document).ready(function(){initNavTree('class_i_sensor.html','');});
 <div class="title">ISensor Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base class for sensor wrappers. Via <a class="el" href="class_i_sensor.html" title="Base class for sensor wrappers. Via ISensor external sensor source code can be plugged into ASensor a...">ISensor</a> external sensor source code can be plugged into ASensor and AWind libraries.  
+ <a href="class_i_sensor.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_sensor_8h_source.html">ISensor.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7388eee56d1ad68dbbfdcaf4623ada25"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7388eee56d1ad68dbbfdcaf4623ada25"></a>
-virtual const __FlashStringHelper *&#160;</td><td class="memItemRight" valign="bottom"><b>Name</b> ()=0</td></tr>
+virtual const __FlashStringHelper *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_sensor.html#a7388eee56d1ad68dbbfdcaf4623ada25">Name</a> ()=0</td></tr>
+<tr class="memdesc:a7388eee56d1ad68dbbfdcaf4623ada25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns internal sensors name. Usefull for debugging. <br /></td></tr>
 <tr class="separator:a7388eee56d1ad68dbbfdcaf4623ada25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a409260549582fd6db03ae9d1e059ed10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a409260549582fd6db03ae9d1e059ed10"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>Precission</b> ()=0</td></tr>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_sensor.html#a409260549582fd6db03ae9d1e059ed10">Precission</a> ()=0</td></tr>
+<tr class="memdesc:a409260549582fd6db03ae9d1e059ed10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return how many decimal places make sence for the sensor. <br /></td></tr>
 <tr class="separator:a409260549582fd6db03ae9d1e059ed10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3543fd32c472ec6a6ca5a4552b181b48"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3543fd32c472ec6a6ca5a4552b181b48"></a>
-virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>LowMeasurementLimit</b> ()=0</td></tr>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_sensor.html#a3543fd32c472ec6a6ca5a4552b181b48">LowMeasurementLimit</a> ()=0</td></tr>
+<tr class="memdesc:a3543fd32c472ec6a6ca5a4552b181b48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return lowest possible measurement limit. If value outside of this limit, measurements treated as erroneous. <br /></td></tr>
 <tr class="separator:a3543fd32c472ec6a6ca5a4552b181b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ed04b72061800073138a74eee8d9407"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ed04b72061800073138a74eee8d9407"></a>
-virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>HighMeasurementLimit</b> ()=0</td></tr>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_sensor.html#a7ed04b72061800073138a74eee8d9407">HighMeasurementLimit</a> ()=0</td></tr>
+<tr class="memdesc:a7ed04b72061800073138a74eee8d9407"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return highest possible measurement limit. If value outside of this limit, measurements treated as erroneous. <br /></td></tr>
 <tr class="separator:a7ed04b72061800073138a74eee8d9407"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a929172d64816c5395e597236e927d69e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a929172d64816c5395e597236e927d69e"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Measure</b> (float &amp;data)=0</td></tr>
+<tr class="memitem:a929172d64816c5395e597236e927d69e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_sensor.html#a929172d64816c5395e597236e927d69e">Measure</a> (float &amp;data)=0</td></tr>
+<tr class="memdesc:a929172d64816c5395e597236e927d69e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs measurements.  <a href="#a929172d64816c5395e597236e927d69e">More...</a><br /></td></tr>
 <tr class="separator:a929172d64816c5395e597236e927d69e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for sensor wrappers. Via <a class="el" href="class_i_sensor.html" title="Base class for sensor wrappers. Via ISensor external sensor source code can be plugged into ASensor a...">ISensor</a> external sensor source code can be plugged into ASensor and AWind libraries. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a929172d64816c5395e597236e927d69e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ISensor::Measure </td>
+          <td>(</td>
+          <td class="paramtype">float &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Performs measurements. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>reference to the variable that becoms result measurement </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if success </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_i_sensor_8h_source.html">ISensor.h</a></li>
 </ul>
@@ -136,7 +182,7 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Measure</b> (
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_i_sensor.html">ISensor</a></li>
-    <li class="footer">Generated on Sun Jul 27 2014 11:08:24 for AFrame by
+    <li class="footer">Generated on Mon Aug 4 2014 17:28:28 for AFrame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

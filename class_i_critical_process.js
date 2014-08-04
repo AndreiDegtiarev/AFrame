@@ -1,4 +1,4 @@
 var class_i_critical_process =
 [
-    [ "loop", "class_i_critical_process.html#aa85e063605fa70df26a1f91e90e30cb1", null ]
+    [ "Idle", "class_i_critical_process.html#a07abedd937253b2a3a6d7a0861784e80", null ]
 ];

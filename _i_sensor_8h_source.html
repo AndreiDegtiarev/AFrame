@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('_i_sensor_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,46 +104,42 @@ $(document).ready(function(){initNavTree('_i_sensor_8h_source.html','');});
 <div class="title">ISensor.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  AFrame - Arduino framework library for ASensor and AWind libraries</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  Copyright (C)2014 Andrei Degtiarev. All right reserved</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  </span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"></span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  AFrame - Arduino framework library for ASensor and AWind libraries</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Copyright (C)2014 Andrei Degtiarev. All right reserved</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  </span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  You can always find the latest version of the library at </span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  https://github.com/AndreiDegtiarev/AFrame</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  This library is free software; you can redistribute it and/or</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  modify it under the terms of the CC BY-NC-SA 3.0 license.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">  Please see the included documents for further information.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  Commercial use of this library requires you to buy a license that</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  will allow commercial use. This includes using the library,</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  modified or not, as a tool to sell products.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">  The license applies to all part of the library including the </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">  examples and tools supplied with the library.</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_i_sensor.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_sensor.html">ISensor</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> __FlashStringHelper* Name()=0;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> Precission()=0;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">float</span> LowMeasurementLimit()=0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">float</span> HighMeasurementLimit()=0;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> Measure(<span class="keywordtype">float</span> &amp;data)=0;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  This library is free software; you can redistribute it and/or</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  modify it under the terms of the MIT license.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  Please see the included documents for further information.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_i_sensor.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_sensor.html">ISensor</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> __FlashStringHelper* <a class="code" href="class_i_sensor.html#a7388eee56d1ad68dbbfdcaf4623ada25">Name</a>()=0;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_i_sensor.html#a409260549582fd6db03ae9d1e059ed10">Precission</a>()=0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">float</span> <a class="code" href="class_i_sensor.html#a3543fd32c472ec6a6ca5a4552b181b48">LowMeasurementLimit</a>()=0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">float</span> <a class="code" href="class_i_sensor.html#a7ed04b72061800073138a74eee8d9407">HighMeasurementLimit</a>()=0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_i_sensor.html#a929172d64816c5395e597236e927d69e">Measure</a>(<span class="keywordtype">float</span> &amp;data)=0;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="ttc" id="class_i_sensor_html"><div class="ttname"><a href="class_i_sensor.html">ISensor</a></div><div class="ttdef"><b>Definition:</b> ISensor.h:23</div></div>
+<div class="ttc" id="class_i_sensor_html_a3543fd32c472ec6a6ca5a4552b181b48"><div class="ttname"><a href="class_i_sensor.html#a3543fd32c472ec6a6ca5a4552b181b48">ISensor::LowMeasurementLimit</a></div><div class="ttdeci">virtual float LowMeasurementLimit()=0</div><div class="ttdoc">Return lowest possible measurement limit. If value outside of this limit, measurements treated as err...</div></div>
+<div class="ttc" id="class_i_sensor_html_a409260549582fd6db03ae9d1e059ed10"><div class="ttname"><a href="class_i_sensor.html#a409260549582fd6db03ae9d1e059ed10">ISensor::Precission</a></div><div class="ttdeci">virtual int Precission()=0</div><div class="ttdoc">Return how many decimal places make sence for the sensor. </div></div>
+<div class="ttc" id="class_i_sensor_html"><div class="ttname"><a href="class_i_sensor.html">ISensor</a></div><div class="ttdoc">Base class for sensor wrappers. Via ISensor external sensor source code can be plugged into ASensor a...</div><div class="ttdef"><b>Definition:</b> ISensor.h:14</div></div>
+<div class="ttc" id="class_i_sensor_html_a7ed04b72061800073138a74eee8d9407"><div class="ttname"><a href="class_i_sensor.html#a7ed04b72061800073138a74eee8d9407">ISensor::HighMeasurementLimit</a></div><div class="ttdeci">virtual float HighMeasurementLimit()=0</div><div class="ttdoc">Return highest possible measurement limit. If value outside of this limit, measurements treated as er...</div></div>
+<div class="ttc" id="class_i_sensor_html_a7388eee56d1ad68dbbfdcaf4623ada25"><div class="ttname"><a href="class_i_sensor.html#a7388eee56d1ad68dbbfdcaf4623ada25">ISensor::Name</a></div><div class="ttdeci">virtual const __FlashStringHelper * Name()=0</div><div class="ttdoc">Returns internal sensors name. Usefull for debugging. </div></div>
+<div class="ttc" id="class_i_sensor_html_a929172d64816c5395e597236e927d69e"><div class="ttname"><a href="class_i_sensor.html#a929172d64816c5395e597236e927d69e">ISensor::Measure</a></div><div class="ttdeci">virtual bool Measure(float &amp;data)=0</div><div class="ttdoc">Performs measurements. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>ISensor.h</b></li>
-    <li class="footer">Generated on Sun Jul 27 2014 11:08:24 for AFrame by
+    <li class="footer">Generated on Mon Aug 4 2014 17:28:28 for AFrame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

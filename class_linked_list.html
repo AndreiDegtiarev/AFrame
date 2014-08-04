@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -91,7 +92,7 @@ $(document).ready(function(){initNavTree('class_linked_list.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,20 +109,33 @@ $(document).ready(function(){initNavTree('class_linked_list.html','');});
 <div class="title">LinkedList&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implements list container. Examples can be found in ASensor and AWind libraries.  
+ <a href="class_linked_list.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_linked_list_8h_source.html">LinkedList.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a40c06811367c96495ddbcbeefa8fcf07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40c06811367c96495ddbcbeefa8fcf07"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Add</b> (T *item)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linked_list.html#a40c06811367c96495ddbcbeefa8fcf07">Add</a> (T *item)</td></tr>
+<tr class="memdesc:a40c06811367c96495ddbcbeefa8fcf07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds new element to the list. <br /></td></tr>
 <tr class="separator:a40c06811367c96495ddbcbeefa8fcf07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a462c899e95ffd4f409b27df5307e2288"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a462c899e95ffd4f409b27df5307e2288"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>Count</b> ()</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linked_list.html#a462c899e95ffd4f409b27df5307e2288">Count</a> ()</td></tr>
+<tr class="memdesc:a462c899e95ffd4f409b27df5307e2288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns numbr of list items. <br /></td></tr>
 <tr class="separator:a462c899e95ffd4f409b27df5307e2288"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc5a7c8a50a3b0b08b964232d9990ba4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc5a7c8a50a3b0b08b964232d9990ba4"></a>
-T *&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (int pos)</td></tr>
+T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linked_list.html#abc5a7c8a50a3b0b08b964232d9990ba4">operator[]</a> (int pos)</td></tr>
+<tr class="memdesc:abc5a7c8a50a3b0b08b964232d9990ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements [] operator. <br /></td></tr>
 <tr class="separator:abc5a7c8a50a3b0b08b964232d9990ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class T&gt;<br />
+class LinkedList&lt; T &gt;</h3>
+
+<p>Implements list container. Examples can be found in ASensor and AWind libraries. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_linked_list_8h_source.html">LinkedList.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -130,7 +144,7 @@ T *&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (int po
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_linked_list.html">LinkedList</a></li>
-    <li class="footer">Generated on Sun Jul 27 2014 11:08:24 for AFrame by
+    <li class="footer">Generated on Mon Aug 4 2014 17:28:29 for AFrame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -91,7 +92,7 @@ $(document).ready(function(){initNavTree('class_sensor_manager.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -109,44 +110,67 @@ $(document).ready(function(){initNavTree('class_sensor_manager.html','');});
 <div class="title">SensorManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manage operations with sensors: triggers measurements, check appplication alarm status and etc.  
+ <a href="class_sensor_manager.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_sensor_manager_8h_source.html">SensorManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad1a252d9a2f5188b8eca07cfcfa03f21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad1a252d9a2f5188b8eca07cfcfa03f21"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SensorManager</b> (<a class="el" href="class_i_sensor.html">ISensor</a> *sensor, float low_application_limit, float high_application_limit, unsigned long pause_length)</td></tr>
+<tr class="memitem:ad1a252d9a2f5188b8eca07cfcfa03f21"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#ad1a252d9a2f5188b8eca07cfcfa03f21">SensorManager</a> (<a class="el" href="class_i_sensor.html">ISensor</a> *sensor, float low_application_limit, float high_application_limit, unsigned long pause_length)</td></tr>
+<tr class="memdesc:ad1a252d9a2f5188b8eca07cfcfa03f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ad1a252d9a2f5188b8eca07cfcfa03f21">More...</a><br /></td></tr>
 <tr class="separator:ad1a252d9a2f5188b8eca07cfcfa03f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4123be42ef8c52ae27b257b415275f2e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4123be42ef8c52ae27b257b415275f2e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RegisterReceiver</b> (<a class="el" href="class_i_sensor_has_data_event_receiver.html">ISensorHasDataEventReceiver</a> *eventReceiver)</td></tr>
-<tr class="separator:a4123be42ef8c52ae27b257b415275f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8affb4a3ce9b7c91943e8947068ba055"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8affb4a3ce9b7c91943e8947068ba055"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#a8affb4a3ce9b7c91943e8947068ba055">RegisterHasDataEventReceiver</a> (<a class="el" href="class_i_sensor_has_data_event_receiver.html">ISensorHasDataEventReceiver</a> *eventReceiver)</td></tr>
+<tr class="memdesc:a8affb4a3ce9b7c91943e8947068ba055"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers receiver for sensor measurement if it differs from previos one. <br /></td></tr>
+<tr class="separator:a8affb4a3ce9b7c91943e8947068ba055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa96769c4dd10b8933a8769f5de0f8dd4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa96769c4dd10b8933a8769f5de0f8dd4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#aa96769c4dd10b8933a8769f5de0f8dd4">RegisterMeasuredEventReceiver</a> (<a class="el" href="class_i_sensor_measured_event_receiver.html">ISensorMeasuredEventReceiver</a> *eventReceiver)</td></tr>
+<tr class="memdesc:aa96769c4dd10b8933a8769f5de0f8dd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers receiver for sensor measurement for every measurement event. <br /></td></tr>
+<tr class="separator:aa96769c4dd10b8933a8769f5de0f8dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a004121dd99aa382b6a917231072171"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a004121dd99aa382b6a917231072171"></a>
-<a class="el" href="class_i_sensor.html">ISensor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Sensor</b> ()</td></tr>
+<a class="el" href="class_i_sensor.html">ISensor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#a9a004121dd99aa382b6a917231072171">Sensor</a> ()</td></tr>
+<tr class="memdesc:a9a004121dd99aa382b6a917231072171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns associated sensor. <br /></td></tr>
 <tr class="separator:a9a004121dd99aa382b6a917231072171"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa469a549e4d0e710c257ab67749d1dbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#aa469a549e4d0e710c257ab67749d1dbd">SetPause</a> (unsigned long pause_ms)</td></tr>
+<tr class="memdesc:aa469a549e4d0e710c257ab67749d1dbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets pause between measurements.  <a href="#aa469a549e4d0e710c257ab67749d1dbd">More...</a><br /></td></tr>
+<tr class="separator:aa469a549e4d0e710c257ab67749d1dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3189b7c90621014ff88edba4ea712bf7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3189b7c90621014ff88edba4ea712bf7"></a>
+unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#a3189b7c90621014ff88edba4ea712bf7">GetPause</a> ()</td></tr>
+<tr class="memdesc:a3189b7c90621014ff88edba4ea712bf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pause between measurements [milliseconds]. <br /></td></tr>
+<tr class="separator:a3189b7c90621014ff88edba4ea712bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5f0d61138fc5a252cbbe8e789fdfe00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5f0d61138fc5a252cbbe8e789fdfe00"></a>
-SensorDataBuffer *&#160;</td><td class="memItemRight" valign="bottom"><b>SecBuffer</b> ()</td></tr>
+SensorDataBuffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#aa5f0d61138fc5a252cbbe8e789fdfe00">SecBuffer</a> ()</td></tr>
+<tr class="memdesc:aa5f0d61138fc5a252cbbe8e789fdfe00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return internal buffer for all last measurements (check buf_size parameter) <br /></td></tr>
 <tr class="separator:aa5f0d61138fc5a252cbbe8e789fdfe00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9b07f41717a54528de4fc7805af898c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9b07f41717a54528de4fc7805af898c"></a>
-SensorDataBuffer *&#160;</td><td class="memItemRight" valign="bottom"><b>MinBuffer</b> ()</td></tr>
+SensorDataBuffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#aa9b07f41717a54528de4fc7805af898c">MinBuffer</a> ()</td></tr>
+<tr class="memdesc:aa9b07f41717a54528de4fc7805af898c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return internal buffer for last measurements with minutes interval (check buf_size parameter) <br /></td></tr>
 <tr class="separator:aa9b07f41717a54528de4fc7805af898c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6a52c3a6548cfaf1c622c013f914186"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6a52c3a6548cfaf1c622c013f914186"></a>
-SensorDataBuffer *&#160;</td><td class="memItemRight" valign="bottom"><b>HowrsBuffer</b> ()</td></tr>
+SensorDataBuffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#af6a52c3a6548cfaf1c622c013f914186">HowrsBuffer</a> ()</td></tr>
+<tr class="memdesc:af6a52c3a6548cfaf1c622c013f914186"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return internal buffer for last measurements with howrs interval (check buf_size parameter) <br /></td></tr>
 <tr class="separator:af6a52c3a6548cfaf1c622c013f914186"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a0b7b5fcb2993322b4f8cde1ecaf341"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a0b7b5fcb2993322b4f8cde1ecaf341"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsReadyForMeasurement</b> ()</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#a6a0b7b5fcb2993322b4f8cde1ecaf341">IsReadyForMeasurement</a> ()</td></tr>
+<tr class="memdesc:a6a0b7b5fcb2993322b4f8cde1ecaf341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if measurements need to be performed. <br /></td></tr>
 <tr class="separator:a6a0b7b5fcb2993322b4f8cde1ecaf341"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b9759393927cb1cd3c4e263db331231"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b9759393927cb1cd3c4e263db331231"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isDiffer</b> (float prev_value, float value)</td></tr>
-<tr class="separator:a6b9759393927cb1cd3c4e263db331231"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5741d885b1ce9baa6c3c0d08314c875"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5741d885b1ce9baa6c3c0d08314c875"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsChanged</b> ()</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#af5741d885b1ce9baa6c3c0d08314c875">IsChanged</a> ()</td></tr>
+<tr class="memdesc:af5741d885b1ce9baa6c3c0d08314c875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if there are new measurements. <br /></td></tr>
 <tr class="separator:af5741d885b1ce9baa6c3c0d08314c875"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada275ae4ff806d9d01bcc13ccbc041d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada275ae4ff806d9d01bcc13ccbc041d3"></a>
-virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>GetData</b> ()</td></tr>
-<tr class="separator:ada275ae4ff806d9d01bcc13ccbc041d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0efa70910f9dd25b6bd8dcf9e350ce4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0efa70910f9dd25b6bd8dcf9e350ce4"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#ab0efa70910f9dd25b6bd8dcf9e350ce4">GetData</a> ()</td></tr>
+<tr class="memdesc:ab0efa70910f9dd25b6bd8dcf9e350ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns last measurements. <br /></td></tr>
+<tr class="separator:ab0efa70910f9dd25b6bd8dcf9e350ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcd1a5b761f5ee8567499f1567eea880"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afcd1a5b761f5ee8567499f1567eea880"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Measure</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#afcd1a5b761f5ee8567499f1567eea880">Measure</a> ()</td></tr>
+<tr class="memdesc:afcd1a5b761f5ee8567499f1567eea880"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers sensor measurements. <br /></td></tr>
 <tr class="separator:afcd1a5b761f5ee8567499f1567eea880"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b6356f3ad93368dc68faaabf224088e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b6356f3ad93368dc68faaabf224088e"></a>
-MeasurementStatus&#160;</td><td class="memItemRight" valign="bottom"><b>Status</b> ()</td></tr>
+MeasurementStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_manager.html#a9b6356f3ad93368dc68faaabf224088e">Status</a> ()</td></tr>
+<tr class="memdesc:a9b6356f3ad93368dc68faaabf224088e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return status of last measurements. <br /></td></tr>
 <tr class="separator:a9b6356f3ad93368dc68faaabf224088e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -155,6 +179,99 @@ Protected Attributes</h2></td></tr>
 <a class="el" href="class_i_sensor.html">ISensor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_sensor</b></td></tr>
 <tr class="separator:a8d0a0f57f79ac88a77e6f7263a520391"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manage operations with sensors: triggers measurements, check appplication alarm status and etc. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ad1a252d9a2f5188b8eca07cfcfa03f21"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SensorManager::SensorManager </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_sensor.html">ISensor</a> *&#160;</td>
+          <td class="paramname"><em>sensor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>low_application_limit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>high_application_limit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long&#160;</td>
+          <td class="paramname"><em>pause_length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>derived from <a class="el" href="class_i_sensor.html" title="Base class for sensor wrappers. Via ISensor external sensor source code can be plugged into ASensor a...">ISensor</a> class </td></tr>
+    <tr><td class="paramname">low_application_limit</td><td>defines application limit for measurements. Like inner temperature schould not be below 0 Celcius </td></tr>
+    <tr><td class="paramname">high_application_limit</td><td>defines application limit for measurements. Like humidity schould not be higher as 65 % </td></tr>
+    <tr><td class="paramname">pause_length</td><td>pause between measurements [milliseconds] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aa469a549e4d0e710c257ab67749d1dbd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SensorManager::SetPause </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long&#160;</td>
+          <td class="paramname"><em>pause_ms</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets pause between measurements. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pause_ms</td><td>pause between measurements [milliseconds] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_sensor_manager_8h_source.html">SensorManager.h</a></li>
 </ul>
@@ -164,7 +281,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_sensor_manager.html">SensorManager</a></li>
-    <li class="footer">Generated on Sun Jul 27 2014 11:08:24 for AFrame by
+    <li class="footer">Generated on Mon Aug 4 2014 17:28:29 for AFrame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

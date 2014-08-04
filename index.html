@@ -85,7 +85,7 @@ $(document).ready(function(){initNavTree('index.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,12 +99,20 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="title">AFrame Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><h2>Introduction </h2>
+<p>AFrame (arduino framework) library that implements basis functionality for ASensor and AWind libraries. In the library main events handlers and wrapper class <a class="el" href="class_i_sensor.html" title="Base class for sensor wrappers. Via ISensor external sensor source code can be plugged into ASensor a...">ISensor</a> are implemented. <a class="el" href="class_i_sensor.html" title="Base class for sensor wrappers. Via ISensor external sensor source code can be plugged into ASensor a...">ISensor</a> is a kind of plug-in interface for external sensor libraries</p>
+<h2>Documentation </h2>
+<p>API documentation: <a href="http://andreidegtiarev.github.io/AFrame/">http://andreidegtiarev.github.io/AFrame/</a></p>
+<h2>Installation </h2>
+<p>To install you need download <a href="https://github.com/AndreiDegtiarev/AFrame/archive/master.zip">https://github.com/AndreiDegtiarev/AFrame/archive/master.zip</a> and unzip it into arduinosketchfolder/libraries/ folder and then remove the "-master" in the folder names.</p>
+<h2>License </h2>
+<p>AFrame library can be redistributed and/or modified under the terms of the MIT license. Please see the included documents for further information. </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Jul 27 2014 11:08:24 for AFrame by
+    <li class="footer">Generated on Mon Aug 4 2014 17:28:29 for AFrame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>
