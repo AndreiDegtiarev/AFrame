@@ -34,6 +34,14 @@ public:
 		Head=NULL;
 		_count=0;
 	};
+	///Copy constructor
+	/*LinkedList(LinkedList &srcList)
+	{
+		Head=NULL;
+		_count=0;
+		for(int i=0;i<srcList.Count();i++)
+			Add(srcList[i]);
+	};*/
 	///Adds new element to the list
 	void Add(T *item)
 	{
