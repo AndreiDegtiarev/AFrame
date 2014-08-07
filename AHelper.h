@@ -33,6 +33,6 @@ public:
 	*/
 	static int GetNumberLength(float number,int prec)
 	{
-		return (number==0?0:log10(number))+2+prec+(number<0?1:0);
+		return (abs(number)<1?0:log10(abs(number)))+2+prec+(number<0?1:0);
 	}
 };
