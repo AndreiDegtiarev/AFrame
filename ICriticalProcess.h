@@ -10,7 +10,7 @@
   modify it under the terms of the MIT license.
   Please see the included documents for further information.
 */
-///User should derive this class from ICriticalProcess if such class has time critical functions, like check whether user touch the display 
+///User should derive his class from ICriticalProcess if such class has time critical functions, like check whether user touch the display 
 class ICriticalProcess
 {
 public:

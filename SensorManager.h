@@ -23,18 +23,18 @@ class SensorManager
 protected: 
 	ISensor *_sensor;
 private:
-	float _prev_value;
-	float _last_value;
-	MeasurementStatus _status;
-	float _low_application_limit;
-	float _high_application_limit;
-	unsigned long _time_last_measurement;
-	unsigned long _pause_length;
-	SensorDataBuffer *_secBuffer;
-	SensorDataBuffer *_minBuffer;
-	SensorDataBuffer *_howrsBuffer;
-	ISensorHasDataEventReceiver *_eventReceiver;
-	ISensorMeasuredEventReceiver *_eventMeasuredReceiver;
+	float _prev_value;                            //!< Prev measured value
+	float _last_value;                           //!< Last measured value
+	MeasurementStatus _status;                  //!<  Last measuremnt status
+	float _low_application_limit;              //!< Defines application limit for measurements. Like inner temperature schould not be below 0 Celcius 
+	float _high_application_limit;            //!< Defines application limit for measurements. Like humidity schould not be higher as 65 %
+	unsigned long _time_last_measurement;    //!< Contains time as last succefull measurements were done
+	unsigned long _pause_length;            //!< Pause between measurements [milliseconds]
+	SensorDataBuffer *_secBuffer;          //!< Contains all last data
+	SensorDataBuffer *_minBuffer;         //!< Contains last data with minute interval
+	SensorDataBuffer *_howrsBuffer;      //!< Contains last data with hower interval
+	ISensorHasDataEventReceiver *_eventReceiver;           //!< Receiver for results of meausurements that differs from previos one
+	ISensorMeasuredEventReceiver *_eventMeasuredReceiver; //!< Receiver for results of last meausurements
 public:
 	///Constructor
 	/**
@@ -60,7 +60,7 @@ public:
 #ifdef DEBUG_AWIND
 		const int buf_size=20;
 #else
-		const int buf_size=31;
+		const int buf_size=30;
 #endif
 		_secBuffer=new SensorDataBuffer(1,pow(10,sensor->Precission()),buf_size);
 		_minBuffer=new SensorDataBuffer(1/60.0,pow(10,sensor->Precission()),buf_size);
