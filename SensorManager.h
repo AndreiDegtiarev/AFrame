@@ -60,7 +60,7 @@ public:
 #ifdef DEBUG_AWIND
 		const int buf_size=20;
 #else
-		const int buf_size=30;
+		const int buf_size=24;
 #endif
 		_secBuffer=new SensorDataBuffer(1,pow(10,sensor->Precission()),buf_size);
 		_minBuffer=new SensorDataBuffer(1/60.0,pow(10,sensor->Precission()),buf_size);
@@ -135,7 +135,7 @@ public:
 	///Triggers sensor measurements
 	void Measure()
 	{
-		float value;
+		float value=0;
 		_status=Error;
 		if(_sensor->Measure(value))
 		{
