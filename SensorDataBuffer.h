@@ -1,7 +1,7 @@
 #pragma once
 /*
   AFrame - Arduino framework library for ASensor and AWind libraries
-  Copyright (C)2014 Andrei Degtiarev. All right reserved
+  Copyright (C)2015 Andrei Degtiarev. All right reserved
   
   You can always find the latest version of the library at 
   https://github.com/AndreiDegtiarev/AFrame
@@ -15,8 +15,7 @@
 #include "Log.h"
 #include "IDataBuffer.h"
 
-///Implement sensor data buffer class. This buffer is used to collect data in form of queue. 
-///In order to save SRAM data is saved as integers and converted back in floata according scling factors
+///Implement sensor data buffer class. This buffer is used to collect data in form of queue. In order to save SRAM data is saved as integers and converted back in floata according scling factors
 class SensorDataBuffer : public IDataBuffer
 {
 	int _size;
