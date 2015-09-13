@@ -16,7 +16,7 @@ class AHelper
 {
 public:
 	///Logs free SRAM memory. SRAM memory is a critical issue especially for application that perform data logging
-	static int LogFreeRam ()
+	static void LogFreeRam ()
 	{
 		extern int __heap_start, *__brkval; 
 		int v; 
@@ -43,7 +43,7 @@ public:
 		if(len1!=len2)
 			return false;
 		unsigned char c1,c2;
-		for (int i=0; i<len1; i++)
+		for (size_t i=0; i<len1; i++)
 		{
 			c1 = pgm_read_byte(&((const char PROGMEM *)str1)[i]);
 			c2 = pgm_read_byte(&((const char PROGMEM *)str2)[i]);
