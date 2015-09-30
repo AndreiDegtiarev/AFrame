@@ -10,7 +10,6 @@
   modify it under the terms of the MIT license.
   Please see the included documents for further information.
 */
-#include "HardwareSerial.h"
 class Endl {};
 ///Wrapper about Arduino HardwareSerial class
 class Log
