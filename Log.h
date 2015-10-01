@@ -15,7 +15,7 @@
 #else
 #include "HardwareSerial.h"
 #endif
-class Endl {};
+class Endln {};
 ///Wrapper about Arduino HardwareSerial class
 class Log
 {
@@ -35,7 +35,7 @@ public:
 		_is_initialized=true;
 	}
 	///Overload << operator with end of line command
-	friend Log& operator<<(Log &out,Endl &value)
+	friend Log& operator<<(Log &out,Endln &value)
 	{
 		if(out.IsInitialized())
 			Serial.println();
@@ -57,4 +57,4 @@ private:
 
 };
 extern Log out;
-extern Endl endl;
+extern Endln endln;

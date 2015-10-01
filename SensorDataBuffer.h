@@ -102,7 +102,7 @@ public:
 	{
 		if(index>=Size())
 		{
-			out<<F("Error: index outside of array bounds: ")<<index<<endl;
+			out<<F("Error: index outside of array bounds: ")<<index<<endln;
 			return 0;
 		}
 		return (_data_x[index]+_offset_x)/_factor_x;
@@ -112,7 +112,7 @@ public:
 	{
 		if(index>=Size())
 		{
-			out<<F("Error: index outside of array bounds: ")<<index<<endl;
+			out<<F("Error: index outside of array bounds: ")<<index<<endln;
 			return 0;
 		}
 		return _data_y[index]/_factor_y;

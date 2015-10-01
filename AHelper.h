@@ -22,7 +22,7 @@ public:
 		int v; 
 		int fr = (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval); 
 		out<<F("Free ram: ");
-		out<<fr<<endl;
+		out<<fr<<endln;
 
 	}
 	///Calculates number of charachters in a number.

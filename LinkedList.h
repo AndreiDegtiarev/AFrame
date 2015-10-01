@@ -71,7 +71,7 @@ public:
 	{
 		if(pos>=_count)
 		{
-			out<<F("Error: index is too big: ")<<pos<<endl;
+			out<<F("Error: index is too big: ")<<pos<<endln;
 			return NULL;
 		}
 		else
