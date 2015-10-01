@@ -10,6 +10,11 @@
   modify it under the terms of the MIT license.
   Please see the included documents for further information.
 */
+#if defined __arm__ //DUE
+#include <Arduino.h>
+#else
+#include "HardwareSerial.h"
+#endif
 class Endl {};
 ///Wrapper about Arduino HardwareSerial class
 class Log
