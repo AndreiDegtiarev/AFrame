@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('_a_helper_8h_source.html','');});
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  AFrame - Arduino framework library for ASensor and AWind libraries</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Copyright (C)2014 Andrei Degtiarev. All right reserved</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Copyright (C)2015 Andrei Degtiarev. All right reserved</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  </span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  You can always find the latest version of the library at </span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  https://github.com/AndreiDegtiarev/AFrame</span></div>
@@ -120,31 +120,48 @@ $(document).ready(function(){initNavTree('_a_helper_8h_source.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_a_helper.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_a_helper.html">AHelper</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_a_helper.html#a029d4c5fde469c42b2e82f160f1d8c0b">   19</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_a_helper.html#a029d4c5fde469c42b2e82f160f1d8c0b">LogFreeRam</a> ()</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_a_helper.html#a595b30dcb9a1c103f41256b4ae2a3042">   19</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_a_helper.html#a595b30dcb9a1c103f41256b4ae2a3042">LogFreeRam</a> ()</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">extern</span> <span class="keywordtype">int</span> __heap_start, *__brkval; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">int</span> v; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">int</span> fr = (int) &amp;v - (__brkval == 0 ? (<span class="keywordtype">int</span>) &amp;__heap_start : (int) __brkval); </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        out&lt;&lt;F(<span class="stringliteral">&quot;Free ram: &quot;</span>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        out&lt;&lt;fr&lt;&lt;endl;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        out&lt;&lt;fr&lt;&lt;endln;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_a_helper.html#a885da9aa0ad068ed4da964e58503573b">   34</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_a_helper.html#a885da9aa0ad068ed4da964e58503573b">GetNumberLength</a>(<span class="keywordtype">float</span> number,<span class="keywordtype">int</span> prec)</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span> (number==0?0:log10(number))+2+prec+(number&lt;0?1:0);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span> (abs(number)&lt;1?0:log10(abs(number)))+2+prec+(number&lt;0?1:0);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_a_helper.html#ab56d32e3e91741a6471b1cf3e856d94f">   39</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_a_helper.html#ab56d32e3e91741a6471b1cf3e856d94f">compare_F</a>(<span class="keyword">const</span> __FlashStringHelper *str1,<span class="keyword">const</span> __FlashStringHelper *str2)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">size_t</span> len1 = strlen_P((<span class="keyword">const</span> <span class="keywordtype">char</span> PROGMEM *)str1);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">size_t</span> len2 = strlen_P((<span class="keyword">const</span> <span class="keywordtype">char</span> PROGMEM *)str2);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span>(len1!=len2)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c1,c2;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;len1; i++)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            c1 = pgm_read_byte(&amp;((<span class="keyword">const</span> <span class="keywordtype">char</span> PROGMEM *)str1)[i]);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            c2 = pgm_read_byte(&amp;((<span class="keyword">const</span> <span class="keywordtype">char</span> PROGMEM *)str2)[i]);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">if</span>(c1!=c2)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
 <div class="ttc" id="class_a_helper_html_a885da9aa0ad068ed4da964e58503573b"><div class="ttname"><a href="class_a_helper.html#a885da9aa0ad068ed4da964e58503573b">AHelper::GetNumberLength</a></div><div class="ttdeci">static int GetNumberLength(float number, int prec)</div><div class="ttdoc">Calculates number of charachters in a number. </div><div class="ttdef"><b>Definition:</b> AHelper.h:34</div></div>
 <div class="ttc" id="class_a_helper_html"><div class="ttname"><a href="class_a_helper.html">AHelper</a></div><div class="ttdoc">Implements number of different helper functions. </div><div class="ttdef"><b>Definition:</b> AHelper.h:15</div></div>
-<div class="ttc" id="class_a_helper_html_a029d4c5fde469c42b2e82f160f1d8c0b"><div class="ttname"><a href="class_a_helper.html#a029d4c5fde469c42b2e82f160f1d8c0b">AHelper::LogFreeRam</a></div><div class="ttdeci">static int LogFreeRam()</div><div class="ttdoc">Logs free SRAM memory. SRAM memory is a critical issue especially for application that perform data l...</div><div class="ttdef"><b>Definition:</b> AHelper.h:19</div></div>
+<div class="ttc" id="class_a_helper_html_a595b30dcb9a1c103f41256b4ae2a3042"><div class="ttname"><a href="class_a_helper.html#a595b30dcb9a1c103f41256b4ae2a3042">AHelper::LogFreeRam</a></div><div class="ttdeci">static void LogFreeRam()</div><div class="ttdoc">Logs free SRAM memory. SRAM memory is a critical issue especially for application that perform data l...</div><div class="ttdef"><b>Definition:</b> AHelper.h:19</div></div>
+<div class="ttc" id="class_a_helper_html_ab56d32e3e91741a6471b1cf3e856d94f"><div class="ttname"><a href="class_a_helper.html#ab56d32e3e91741a6471b1cf3e856d94f">AHelper::compare_F</a></div><div class="ttdeci">static bool compare_F(const __FlashStringHelper *str1, const __FlashStringHelper *str2)</div><div class="ttdoc">Compares PROGMEM strings. I didn&#39;t manged to use strcmp_P function. </div><div class="ttdef"><b>Definition:</b> AHelper.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>AHelper.h</b></li>
-    <li class="footer">Generated on Mon Aug 4 2014 17:28:28 for AFrame by
+    <li class="footer">Generated on Tue Oct 27 2015 22:12:21 for AFrame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

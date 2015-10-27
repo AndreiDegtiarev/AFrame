@@ -1,6 +1,7 @@
 var searchData=
 [
   ['icriticalprocess',['ICriticalProcess',['../class_i_critical_process.html',1,'']]],
+  ['idatabuffer',['IDataBuffer',['../class_i_data_buffer.html',1,'']]],
   ['idle',['Idle',['../class_i_critical_process.html#a07abedd937253b2a3a6d7a0861784e80',1,'ICriticalProcess']]],
   ['ischanged',['IsChanged',['../class_sensor_manager.html#af5741d885b1ce9baa6c3c0d08314c875',1,'SensorManager']]],
   ['isensor',['ISensor',['../class_i_sensor.html',1,'']]],

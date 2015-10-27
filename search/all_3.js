@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['endl',['Endl',['../class_endl.html',1,'']]]
+  ['endln',['Endln',['../class_endln.html',1,'']]]
 ];

@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('_linked_list_8h_source.html','');});
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  AFrame - Arduino framework library for ASensor and AWind libraries</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Copyright (C)2014 Andrei Degtiarev. All right reserved</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Copyright (C)2015 Andrei Degtiarev. All right reserved</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  </span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  You can always find the latest version of the library at </span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  https://github.com/AndreiDegtiarev/AFrame</span></div>
@@ -138,53 +138,60 @@ $(document).ready(function(){initNavTree('_linked_list_8h_source.html','');});
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        Head=NULL;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        _count=0;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    };</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_linked_list.html#a40c06811367c96495ddbcbeefa8fcf07">   38</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#a40c06811367c96495ddbcbeefa8fcf07">Add</a>(T *item)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="class_linked_entry.html">LinkedEntry&lt;T&gt;</a> *new_entry=<span class="keyword">new</span> <a class="code" href="class_linked_entry.html">LinkedEntry&lt;T&gt;</a>(item);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span>(Head!=NULL)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <a class="code" href="class_linked_entry.html">LinkedEntry&lt;T&gt;</a> *cur= Head;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">while</span>(cur-&gt;Next!=NULL)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                cur=cur-&gt;Next;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            cur-&gt;Next = new_entry;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            Head = new_entry;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        _count++;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_linked_list.html#a462c899e95ffd4f409b27df5307e2288">   57</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_linked_list.html#a462c899e95ffd4f409b27df5307e2288">Count</a>()</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> _count;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_linked_list.html#abc5a7c8a50a3b0b08b964232d9990ba4">   62</a></span>&#160;    T* <a class="code" href="class_linked_list.html#abc5a7c8a50a3b0b08b964232d9990ba4">operator[]</a>(<span class="keywordtype">int</span> pos)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span>(pos&gt;=_count)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            out&lt;&lt;F(<span class="stringliteral">&quot;Error: index is too big: &quot;</span>)&lt;&lt;pos&lt;&lt;endl;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordtype">int</span> index=0;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <a class="code" href="class_linked_entry.html">LinkedEntry&lt;T&gt;</a> *cur= Head;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">while</span>(cur!=NULL)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordflow">if</span>(index == pos)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    <span class="keywordflow">return</span> cur-&gt;Item;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                cur=cur-&gt;Next;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                index++;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
-<div class="ttc" id="class_linked_list_html_a462c899e95ffd4f409b27df5307e2288"><div class="ttname"><a href="class_linked_list.html#a462c899e95ffd4f409b27df5307e2288">LinkedList::Count</a></div><div class="ttdeci">int Count()</div><div class="ttdoc">Returns numbr of list items. </div><div class="ttdef"><b>Definition:</b> LinkedList.h:57</div></div>
-<div class="ttc" id="class_linked_list_html_abc5a7c8a50a3b0b08b964232d9990ba4"><div class="ttname"><a href="class_linked_list.html#abc5a7c8a50a3b0b08b964232d9990ba4">LinkedList::operator[]</a></div><div class="ttdeci">T * operator[](int pos)</div><div class="ttdoc">Implements [] operator. </div><div class="ttdef"><b>Definition:</b> LinkedList.h:62</div></div>
-<div class="ttc" id="class_linked_list_html_a40c06811367c96495ddbcbeefa8fcf07"><div class="ttname"><a href="class_linked_list.html#a40c06811367c96495ddbcbeefa8fcf07">LinkedList::Add</a></div><div class="ttdeci">void Add(T *item)</div><div class="ttdoc">Adds new element to the list. </div><div class="ttdef"><b>Definition:</b> LinkedList.h:38</div></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">/*LinkedList(LinkedList &amp;srcList)</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">    {</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">        Head=NULL;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">        _count=0;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">        for(int i=0;i&lt;srcList.Count();i++)</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">            Add(srcList[i]);</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">    };*/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_linked_list.html#a40c06811367c96495ddbcbeefa8fcf07">   46</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#a40c06811367c96495ddbcbeefa8fcf07">Add</a>(T *item)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_linked_entry.html">LinkedEntry&lt;T&gt;</a> *new_entry=<span class="keyword">new</span> <a class="code" href="class_linked_entry.html">LinkedEntry&lt;T&gt;</a>(item);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">if</span>(Head!=NULL)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <a class="code" href="class_linked_entry.html">LinkedEntry&lt;T&gt;</a> *cur= Head;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">while</span>(cur-&gt;Next!=NULL)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                cur=cur-&gt;Next;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            cur-&gt;Next = new_entry;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            Head = new_entry;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        _count++;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_linked_list.html#a462c899e95ffd4f409b27df5307e2288">   65</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_linked_list.html#a462c899e95ffd4f409b27df5307e2288">Count</a>()</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">return</span> _count;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_linked_list.html#abc5a7c8a50a3b0b08b964232d9990ba4">   70</a></span>&#160;    T* <a class="code" href="class_linked_list.html#abc5a7c8a50a3b0b08b964232d9990ba4">operator[]</a>(<span class="keywordtype">int</span> pos)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span>(pos&gt;=_count)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            out&lt;&lt;F(<span class="stringliteral">&quot;Error: index is too big: &quot;</span>)&lt;&lt;pos&lt;&lt;endln;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordtype">int</span> index=0;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <a class="code" href="class_linked_entry.html">LinkedEntry&lt;T&gt;</a> *cur= Head;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">while</span>(cur!=NULL)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keywordflow">if</span>(index == pos)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    <span class="keywordflow">return</span> cur-&gt;Item;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                cur=cur-&gt;Next;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                index++;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
+<div class="ttc" id="class_linked_list_html_a462c899e95ffd4f409b27df5307e2288"><div class="ttname"><a href="class_linked_list.html#a462c899e95ffd4f409b27df5307e2288">LinkedList::Count</a></div><div class="ttdeci">int Count()</div><div class="ttdoc">Returns numbr of list items. </div><div class="ttdef"><b>Definition:</b> LinkedList.h:65</div></div>
+<div class="ttc" id="class_linked_list_html_abc5a7c8a50a3b0b08b964232d9990ba4"><div class="ttname"><a href="class_linked_list.html#abc5a7c8a50a3b0b08b964232d9990ba4">LinkedList::operator[]</a></div><div class="ttdeci">T * operator[](int pos)</div><div class="ttdoc">Implements [] operator. </div><div class="ttdef"><b>Definition:</b> LinkedList.h:70</div></div>
+<div class="ttc" id="class_linked_list_html_a40c06811367c96495ddbcbeefa8fcf07"><div class="ttname"><a href="class_linked_list.html#a40c06811367c96495ddbcbeefa8fcf07">LinkedList::Add</a></div><div class="ttdeci">void Add(T *item)</div><div class="ttdoc">Copy constructor. </div><div class="ttdef"><b>Definition:</b> LinkedList.h:46</div></div>
 <div class="ttc" id="class_linked_list_html"><div class="ttname"><a href="class_linked_list.html">LinkedList</a></div><div class="ttdoc">Implements list container. Examples can be found in ASensor and AWind libraries. </div><div class="ttdef"><b>Definition:</b> LinkedList.h:27</div></div>
 <div class="ttc" id="class_linked_entry_html"><div class="ttname"><a href="class_linked_entry.html">LinkedEntry</a></div><div class="ttdoc">Internal class, implements list entry container. </div><div class="ttdef"><b>Definition:</b> LinkedList.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -193,7 +200,7 @@ $(document).ready(function(){initNavTree('_linked_list_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>LinkedList.h</b></li>
-    <li class="footer">Generated on Mon Aug 4 2014 17:28:28 for AFrame by
+    <li class="footer">Generated on Tue Oct 27 2015 22:12:21 for AFrame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

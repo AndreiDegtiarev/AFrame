@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -117,13 +118,17 @@ $(document).ready(function(){initNavTree('class_a_helper.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a029d4c5fde469c42b2e82f160f1d8c0b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a029d4c5fde469c42b2e82f160f1d8c0b"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_helper.html#a029d4c5fde469c42b2e82f160f1d8c0b">LogFreeRam</a> ()</td></tr>
-<tr class="memdesc:a029d4c5fde469c42b2e82f160f1d8c0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs free SRAM memory. SRAM memory is a critical issue especially for application that perform data logging. <br /></td></tr>
-<tr class="separator:a029d4c5fde469c42b2e82f160f1d8c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a595b30dcb9a1c103f41256b4ae2a3042"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a595b30dcb9a1c103f41256b4ae2a3042"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_helper.html#a595b30dcb9a1c103f41256b4ae2a3042">LogFreeRam</a> ()</td></tr>
+<tr class="memdesc:a595b30dcb9a1c103f41256b4ae2a3042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs free SRAM memory. SRAM memory is a critical issue especially for application that perform data logging. <br /></td></tr>
+<tr class="separator:a595b30dcb9a1c103f41256b4ae2a3042"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a885da9aa0ad068ed4da964e58503573b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_helper.html#a885da9aa0ad068ed4da964e58503573b">GetNumberLength</a> (float number, int prec)</td></tr>
 <tr class="memdesc:a885da9aa0ad068ed4da964e58503573b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates number of charachters in a number.  <a href="#a885da9aa0ad068ed4da964e58503573b">More...</a><br /></td></tr>
 <tr class="separator:a885da9aa0ad068ed4da964e58503573b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab56d32e3e91741a6471b1cf3e856d94f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab56d32e3e91741a6471b1cf3e856d94f"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_helper.html#ab56d32e3e91741a6471b1cf3e856d94f">compare_F</a> (const __FlashStringHelper *str1, const __FlashStringHelper *str2)</td></tr>
+<tr class="memdesc:ab56d32e3e91741a6471b1cf3e856d94f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares PROGMEM strings. I didn't manged to use strcmp_P function. <br /></td></tr>
+<tr class="separator:ab56d32e3e91741a6471b1cf3e856d94f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements number of different helper functions. </p>
@@ -181,7 +186,7 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_a_helper.html">AHelper</a></li>
-    <li class="footer">Generated on Mon Aug 4 2014 17:28:28 for AFrame by
+    <li class="footer">Generated on Tue Oct 27 2015 22:12:22 for AFrame by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>
