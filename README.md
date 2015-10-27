@@ -11,7 +11,7 @@ API documentation: http://andreidegtiarev.github.io/AFrame/
 
 Installation
 ------------
-To install you need download https://github.com/AndreiDegtiarev/AFrame/archive/master.zip and unzip it into arduinosketchfolder/libraries/ folder and then remove the "-master" in the folder names.
+This library is installed together with AWind library. The content of Awind_full.zip from https://github.com/AndreiDegtiarev/AWind/releases has to be unziped into arduinosketchfolder/libraries/ folder.
 
 License
 ------------
