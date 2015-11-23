@@ -86,9 +86,9 @@ public:
 		for(int i=_startIndex;i<_size-1;i++)
 		{
 			min_x=min(min_x,_data_x[i]);
-			max_x=Max(max_x,_data_x[i]);
+			max_x=max(max_x,_data_x[i]);
 			min_y=min(min_y,_data_y[i]);
-			max_y=Max(max_y,_data_y[i]);
+			max_y=max(max_y,_data_y[i]);
 		}
 		min_x+=_offset_x;
 		max_x+=_offset_x;
