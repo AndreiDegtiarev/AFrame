@@ -18,11 +18,14 @@ public:
 	///Logs free SRAM memory. SRAM memory is a critical issue especially for application that perform data logging
 	static void LogFreeRam ()
 	{
+#ifndef _VARIANT_ARDUINO_DUE_X_
 		extern int __heap_start, *__brkval; 
 		int v; 
 		int fr = (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval); 
 		out<<F("Free ram: ");
 		out<<fr<<endln;
+#endif
+
 
 	}
 	///Calculates number of charachters in a number.
