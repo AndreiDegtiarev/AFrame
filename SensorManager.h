@@ -46,12 +46,12 @@ public:
 	SensorManager(ISensor *sensor,
 				  float low_application_limit,
 				  float high_application_limit,
-				  unsigned long pause_length)
+				  unsigned long pause_length_ms,bool withBuffer=true)
 	{
 		_sensor=sensor;
 		_low_application_limit=low_application_limit;
 		_high_application_limit=high_application_limit;
-		_pause_length = pause_length;
+		_pause_length = pause_length_ms;
 		_status=OK;
 		_prev_value = 0;
 		_last_value = 0;
@@ -62,11 +62,35 @@ public:
 #else
 		const int buf_size=24;
 #endif
-		_secBuffer=new SensorDataBuffer(1,pow(10,sensor->Precission()),buf_size);
-		_minBuffer=new SensorDataBuffer(1/60.0,pow(10,sensor->Precission()),buf_size);
-		_howrsBuffer=new SensorDataBuffer(1/(60.0*60.0),pow(10,sensor->Precission()),buf_size);
+		if (withBuffer)
+		{
+			_secBuffer = new SensorDataBuffer(1, pow(10, sensor->Precission()), buf_size);
+			_minBuffer = new SensorDataBuffer(1 / 60.0, pow(10, sensor->Precission()), buf_size);
+			_howrsBuffer = new SensorDataBuffer(1 / (60.0*60.0), pow(10, sensor->Precission()), buf_size);
+		}
+		else
+		{
+			_secBuffer = NULL;
+			_minBuffer = NULL;
+			_howrsBuffer = NULL;
+		}
 		_eventReceiver=NULL;
 		_eventMeasuredReceiver=NULL;
+	}
+	///Initialize buffer for results with second time steps
+	void initSecondsBuffer(int buf_size)
+	{
+		_secBuffer = new SensorDataBuffer(1, pow(10, _sensor->Precission()), buf_size);
+	}
+	///Initialize buffer for results with minute time steps
+	void initMinutesBuffer(int buf_size)
+	{
+		_minBuffer = new SensorDataBuffer(1 / 60.0, pow(10, _sensor->Precission()), buf_size);
+	}
+	///Initialize buffer for results with howr time steps
+	void initHowrsBuffer(int buf_size)
+	{
+		_howrsBuffer = new SensorDataBuffer(1 / (60.0*60.0), pow(10, _sensor->Precission()), buf_size);
 	}
 	///Registers receiver for sensor measurement if it differs from previos one
 	void RegisterHasDataEventReceiver(ISensorHasDataEventReceiver *eventReceiver)
@@ -159,13 +183,20 @@ public:
 			_time_last_measurement = millis();
 			_last_value=value;
 			unsigned long cursec=_time_last_measurement/1000;
-			_secBuffer->AddValue(cursec,value);
-			unsigned long last_sec_time = _minBuffer->X(_minBuffer->Size()-1);
-			if(last_sec_time == 0 || (cursec-last_sec_time)>3600/_minBuffer->Size())
-				_minBuffer->AddValue(cursec,value);
-			unsigned long last_howr_time = _howrsBuffer->X(_howrsBuffer->Size()-1);
-			if(last_howr_time == 0 || (cursec-last_howr_time)>3600)
-				_howrsBuffer->AddValue(cursec,value);
+			if(_secBuffer!=NULL)
+				_secBuffer->AddValue(cursec,value);
+			if (_minBuffer != NULL)
+			{
+				unsigned long last_sec_time = _minBuffer->X(_minBuffer->Size() - 1);
+				if (last_sec_time == 0 || (cursec - last_sec_time) > 3600 / _minBuffer->Size())
+					_minBuffer->AddValue(cursec, value);
+			}
+			if (_howrsBuffer)
+			{
+				unsigned long last_howr_time = _howrsBuffer->X(_howrsBuffer->Size() - 1);
+				if (last_howr_time == 0 || (cursec - last_howr_time) > 3600)
+					_howrsBuffer->AddValue(cursec, value);
+			}
 			if(IsChanged() && _eventReceiver!=NULL)
 				_eventReceiver->NotifySensorHasData(this);
 			if(_eventMeasuredReceiver!=NULL)
