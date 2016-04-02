@@ -22,7 +22,6 @@ class SensorManager
 
 protected: 
 	ISensor *_sensor;
-private:
 	float _prev_value;                            //!< Prev measured value
 	float _last_value;                           //!< Last measured value
 	MeasurementStatus _status;                  //!<  Last measuremnt status
@@ -101,6 +100,16 @@ public:
 	void RegisterMeasuredEventReceiver(ISensorMeasuredEventReceiver *eventReceiver)
 	{
 		_eventMeasuredReceiver=eventReceiver;
+	}
+	///Returns low application limit for measured values
+	float LowApplicationLimit()
+	{
+		return _low_application_limit;
+	}
+	///Returns hight application limit for measured values
+	float HightApplicationLimit()
+	{
+		return _high_application_limit;
 	}
 	///Returns associated sensor
 	ISensor *Sensor()
