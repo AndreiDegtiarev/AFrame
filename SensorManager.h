@@ -111,6 +111,16 @@ public:
 	{
 		return _high_application_limit;
 	}
+	///set low application limit for measured values
+	void SetLowApplicationLimit(float limit)
+	{
+		_low_application_limit = limit;
+	}
+	///Returns hight application limit for measured values
+	void SetHightApplicationLimit(float limit)
+	{
+		_high_application_limit = limit;
+	}
 	///Returns associated sensor
 	ISensor *Sensor()
 	{
