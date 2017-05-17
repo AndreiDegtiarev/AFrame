@@ -13,7 +13,7 @@
 ///Defines status of measuremnts in SensorManager
 enum MeasurementStatus
 {
-	OK,
+	MStOK,
 	Error,
 	ApplicationAlarm
 };
