@@ -15,6 +15,7 @@
 #include "SensorDataBuffer.h"
 #include "ISensorHasDataEventReceiver.h"
 #include "ISensorMeasuredEventReceiver.h"
+#include "SensorCalibrator.h"
 
 ///Manage operations with sensors: triggers measurements, check appplication alarm status and etc.
 class SensorManager
@@ -34,6 +35,10 @@ protected:
 	SensorDataBuffer *_howrsBuffer;      //!< Contains last data with hower interval
 	ISensorHasDataEventReceiver *_eventReceiver;           //!< Receiver for results of meausurements that differs from previos one
 	ISensorMeasuredEventReceiver *_eventMeasuredReceiver; //!< Receiver for results of last meausurements
+	SensorCalibrator *_sensorCalibrator;                  //!< Recalculate sensor values into phisical ones
+	
+	const __FlashStringHelper* _applicationName;
+
 public:
 	///Constructor
 	/**
@@ -45,16 +50,18 @@ public:
 	SensorManager(ISensor *sensor,
 				  float low_application_limit,
 				  float high_application_limit,
-				  unsigned long pause_length_ms,bool withBuffer=true)
+				  unsigned long pause_length_ms,bool withBuffer=true, const __FlashStringHelper* applicationName=NULL, SensorCalibrator *sensorCalibrator=NULL)
 	{
 		_sensor=sensor;
 		_low_application_limit=low_application_limit;
 		_high_application_limit=high_application_limit;
 		_pause_length = pause_length_ms;
-		_status=OK;
+		_status= MeasurementStatus::MStOK;
 		_prev_value = 0;
 		_last_value = 0;
 		_time_last_measurement = 0.0;
+		_applicationName = applicationName;
+		_sensorCalibrator = sensorCalibrator;
 		//reduce this value if you have problem with SRAM
 #ifdef DEBUG_AWIND
 		const int buf_size=20;
@@ -100,6 +107,11 @@ public:
 	void RegisterMeasuredEventReceiver(ISensorMeasuredEventReceiver *eventReceiver)
 	{
 		_eventMeasuredReceiver=eventReceiver;
+	}
+	///Returns applicationspecific name
+	const __FlashStringHelper* AppName()
+	{
+		return _applicationName;
 	}
 	///Returns low application limit for measured values
 	float LowApplicationLimit()
@@ -182,7 +194,9 @@ public:
 		_status=Error;
 		if(_sensor->Measure(value))
 		{
-			_status=OK;
+			if (_sensorCalibrator)
+				value = _sensorCalibrator->Value(value);
+			_status= MeasurementStatus::MStOK;
 			if(value<_sensor->LowMeasurementLimit() || value >_sensor->HighMeasurementLimit())
 			{
 				_status=Error;
