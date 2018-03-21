@@ -16,6 +16,7 @@
 #include "ISensorHasDataEventReceiver.h"
 #include "ISensorMeasuredEventReceiver.h"
 #include "SensorCalibrator.h"
+#include "LinkedList.h"
 
 ///Manage operations with sensors: triggers measurements, check appplication alarm status and etc.
 class SensorManager
@@ -33,8 +34,8 @@ protected:
 	SensorDataBuffer *_secBuffer;          //!< Contains all last data
 	SensorDataBuffer *_minBuffer;         //!< Contains last data with minute interval
 	SensorDataBuffer *_howrsBuffer;      //!< Contains last data with hower interval
-	ISensorHasDataEventReceiver *_eventReceiver;           //!< Receiver for results of meausurements that differs from previos one
-	ISensorMeasuredEventReceiver *_eventMeasuredReceiver; //!< Receiver for results of last meausurements
+	LinkedList<ISensorHasDataEventReceiver> _eventReceivers;           //!< Receivers for results of meausurements that differs from previos one
+	LinkedList<ISensorMeasuredEventReceiver> _eventMeasuredReceivers; //!< Receivers for results of last meausurements
 	SensorCalibrator *_sensorCalibrator;                  //!< Recalculate sensor values into phisical ones
 	
 	const __FlashStringHelper* _applicationName;
@@ -80,8 +81,6 @@ public:
 			_minBuffer = NULL;
 			_howrsBuffer = NULL;
 		}
-		_eventReceiver=NULL;
-		_eventMeasuredReceiver=NULL;
 	}
 	///Initialize buffer for results with second time steps
 	void initSecondsBuffer(int buf_size)
@@ -101,12 +100,12 @@ public:
 	///Registers receiver for sensor measurement if it differs from previos one
 	void RegisterHasDataEventReceiver(ISensorHasDataEventReceiver *eventReceiver)
 	{
-		_eventReceiver=eventReceiver;
+		_eventReceivers.Add(eventReceiver);
 	}
 	///Registers receiver for sensor measurement for every measurement event
 	void RegisterMeasuredEventReceiver(ISensorMeasuredEventReceiver *eventReceiver)
 	{
-		_eventMeasuredReceiver=eventReceiver;
+		_eventMeasuredReceivers.Add(eventReceiver);
 	}
 	///Returns applicationspecific name
 	const __FlashStringHelper* AppName()
@@ -230,10 +229,13 @@ public:
 				if (last_howr_time == 0 || (cursec - last_howr_time) > 3600)
 					_howrsBuffer->AddValue(cursec, value);
 			}
-			if(IsChanged() && _eventReceiver!=NULL)
-				_eventReceiver->NotifySensorHasData(this);
-			if(_eventMeasuredReceiver!=NULL)
-				_eventMeasuredReceiver->NotifySensorMeasured(this);
+			if (IsChanged())
+			{
+				for(int i=0;i<_eventReceivers.Count();i++)
+					_eventReceivers[i]->NotifySensorHasData(this);
+			}
+			for (int i = 0; i<_eventMeasuredReceivers.Count(); i++)
+				_eventMeasuredReceivers[i]->NotifySensorMeasured(this);
 
 		}
 	}
