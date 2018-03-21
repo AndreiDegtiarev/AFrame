@@ -1,7 +1,7 @@
 #pragma once
 /*
   AFrame - Arduino framework library for ASensor and AWind libraries
-  Copyright (C)2015 Andrei Degtiarev. All right reserved
+  Copyright (C)2014-2018 Andrei Degtiarev. All right reserved
   
   You can always find the latest version of the library at 
   https://github.com/AndreiDegtiarev/AFrame
