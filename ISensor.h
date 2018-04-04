@@ -10,6 +10,7 @@ This library is free software; you can redistribute it and/or
 modify it under the terms of the MIT license.
 Please see the included documents for further information.
 */
+#include "ADefinitions.h"
 ///Base class for sensor wrappers. Via ISensor external sensor source code can be plugged into ASensor and AWind libraries 
 class ISensor
 {

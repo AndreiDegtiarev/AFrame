@@ -10,11 +10,7 @@ This library is free software; you can redistribute it and/or
 modify it under the terms of the MIT license.
 Please see the included documents for further information.
 */
-#if defined __arm__ //DUE
-#include <Arduino.h>
-#else
-#include "HardwareSerial.h"
-#endif
+#include "ADefinitions.h"
 class Endln {};
 ///Wrapper about Arduino HardwareSerial class
 class Log
